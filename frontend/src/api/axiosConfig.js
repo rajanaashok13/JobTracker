@@ -9,7 +9,7 @@ const api = axios.create({
   headers: {
     'Content-Type': 'application/json'
   },
-  timeout: 15000
+  timeout: 30000
 });
 
 // Request Interceptor: Attach JWT token from localStorage to every outgoing request

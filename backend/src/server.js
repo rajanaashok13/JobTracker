@@ -16,9 +16,6 @@ dotenv.config({ path: path.resolve(__dirname, '../.env') });
 // Initialize express app
 const app = express();
 
-// Connect to MongoDB
-connectDB();
-
 // CORS configuration - allow frontend development server and production client URL
 const allowedOrigins = [
   'http://localhost:5173',
@@ -30,7 +27,7 @@ app.use(
   cors({
     origin: (origin, callback) => {
       // Allow requests with no origin (e.g. mobile apps, curl, postman) or Vercel domains
-      if (!origin || allowedOrigins.includes(origin) || origin.endsWith('.vercel.app') || process.env.NODE_ENV !== 'production') {
+      if (!origin || allowedOrigins.includes(origin) || (origin && origin.endsWith('.vercel.app')) || process.env.NODE_ENV !== 'production') {
         callback(null, true);
       } else {
         callback(null, true);
@@ -42,13 +39,21 @@ app.use(
   })
 );
 
-// Ensure DB is connected for serverless invocations
+// Ensure DB is connected for serverless invocations (bypass for health/root)
 app.use(async (req, res, next) => {
+  if (req.path === '/' || req.path === '/api/health') {
+    return next();
+  }
+
   try {
     await connectDB();
     next();
   } catch (err) {
-    next(err);
+    return res.status(503).json({
+      success: false,
+      message: 'Database connection failed. Please ensure MongoDB Atlas Network Access has IP 0.0.0.0/0 allowed.',
+      error: err.message
+    });
   }
 });
 
