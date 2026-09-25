@@ -1,0 +1,23 @@
+{
+  "name": "jobtrack-mern",
+  "version": "1.0.0",
+  "description": "JobTrack - Job Application Management System (MERN Stack)",
+  "scripts": {
+    "install:all": "npm install --prefix backend && npm install --prefix frontend",
+    "server": "npm run dev --prefix backend",
+    "client": "npm run dev --prefix frontend",
+    "start": "node backend/src/server.js",
+    "build": "npm run build --prefix frontend"
+  },
+  "keywords": [
+    "mern",
+    "react",
+    "node",
+    "express",
+    "mongodb",
+    "job-tracker",
+    "portfolio-project"
+  ],
+  "author": "",
+  "license": "MIT"
+}

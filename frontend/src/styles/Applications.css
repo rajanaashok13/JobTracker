@@ -1,0 +1,337 @@
+/* Applications Page Styles */
+
+.applications-page {
+  padding-top: 2rem;
+  padding-bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.apps-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.apps-title {
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.apps-subtitle {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-top: 0.2rem;
+}
+
+/* Filter Panel */
+.filter-panel {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.filter-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.search-row {
+  justify-content: space-between;
+}
+
+.search-wrapper {
+  flex: 1;
+  min-width: 280px;
+}
+
+/* Status Filter Tabs */
+.status-tabs-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  background-color: var(--bg-tertiary);
+  padding: 4px;
+  border-radius: var(--radius-md);
+}
+
+.status-tab-btn {
+  padding: 0.4rem 0.85rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.status-tab-btn:hover {
+  color: var(--text-primary);
+}
+
+.status-tab-btn.active {
+  background-color: var(--bg-secondary);
+  color: var(--primary-600);
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme='dark'] .status-tab-btn.active {
+  color: var(--primary-400);
+}
+
+/* Secondary Filters */
+.secondary-filters {
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-color);
+  justify-content: space-between;
+}
+
+.filter-input-group {
+  flex: 1;
+  min-width: 170px;
+}
+
+.form-input-sm {
+  padding: 0.5rem 0.85rem 0.5rem 2.2rem;
+  font-size: 0.875rem;
+}
+
+.sort-dropdown-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sort-dropdown-wrapper select.form-input-sm {
+  padding: 0.5rem 1rem;
+  min-width: 140px;
+}
+
+.filter-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.view-mode-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.active-view {
+  background-color: var(--primary-50) !important;
+  color: var(--primary-600) !important;
+}
+
+[data-theme='dark'] .active-view {
+  background-color: rgba(99, 102, 241, 0.2) !important;
+  color: var(--primary-300) !important;
+}
+
+/* Cards Grid */
+.jobs-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.job-card {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.15rem;
+  transition: all var(--transition-normal);
+}
+
+.job-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary-300);
+  box-shadow: var(--shadow-lg);
+}
+
+.job-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.job-company-block {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.job-avatar-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, var(--primary-600), var(--accent-cyan));
+  color: #FFFFFF;
+  font-size: 1.15rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.table-avatar {
+  width: 32px;
+  height: 32px;
+  font-size: 0.9rem;
+}
+
+.job-role-text {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.25;
+}
+
+.job-company-name {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.job-card-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.detail-icon {
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.job-card-notes-preview {
+  font-size: 0.825rem;
+  color: var(--text-muted);
+  font-style: italic;
+  line-height: 1.4;
+  background-color: var(--bg-tertiary);
+  padding: 0.5rem 0.75rem;
+  border-radius: var(--radius-sm);
+}
+
+.job-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.job-external-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.825rem;
+  font-weight: 600;
+  color: var(--primary-600);
+}
+
+.job-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.btn-action-delete:hover {
+  color: #DC2626 !important;
+  background-color: var(--status-rejected-bg) !important;
+}
+
+/* Table View */
+.table-responsive-container {
+  overflow-x: auto;
+  border-radius: var(--radius-lg);
+}
+
+.apps-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.9rem;
+}
+
+.apps-table th,
+.apps-table td {
+  padding: 0.95rem 1.2rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.apps-table th {
+  background-color: var(--bg-tertiary);
+  font-weight: 700;
+  color: var(--text-secondary);
+  font-size: 0.825rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.apps-table tbody tr:hover {
+  background-color: var(--bg-tertiary);
+}
+
+/* Pagination */
+.pagination-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.pagination-info {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+/* Empty Applications State */
+.empty-applications {
+  padding: 4rem 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.empty-applications h3 {
+  font-size: 1.35rem;
+}
+
+.empty-applications p {
+  max-width: 440px;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .secondary-filters {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .view-mode-group {
+    justify-content: flex-end;
+  }
+}
