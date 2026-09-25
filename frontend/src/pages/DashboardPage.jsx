@@ -103,14 +103,14 @@ const DashboardPage = () => {
               title="Applied"
               count={stats.applied}
               icon={Send}
-              color="blue"
+              color="amber"
               subtext="Awaiting response"
             />
             <StatsCard
               title="In Interview"
               count={stats.interview}
               icon={CalendarCheck}
-              color="amber"
+              color="amethyst"
               subtext="Active interview rounds"
             />
             <StatsCard

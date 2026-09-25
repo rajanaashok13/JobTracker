@@ -9,13 +9,13 @@ const StatChart = ({ stats = { applied: 0, interview: 0, selected: 0, rejected: 
     {
       label: 'Applied',
       count: stats.applied || 0,
-      color: '#3B82F6',
+      color: '#F59E0B',
       percentage: total > 0 ? Math.round(((stats.applied || 0) / total) * 100) : 0
     },
     {
       label: 'Interview',
       count: stats.interview || 0,
-      color: '#F59E0B',
+      color: '#8B5CF6',
       percentage: total > 0 ? Math.round(((stats.interview || 0) / total) * 100) : 0
     },
     {

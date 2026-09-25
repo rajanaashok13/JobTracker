@@ -45,11 +45,12 @@ const ThreeHeroScene = () => {
     const scales = new Float32Array(particleCount);
 
     const colorPalette = [
-      new THREE.Color('#6366f1'), // Indigo
-      new THREE.Color('#06b6d4'), // Cyan
-      new THREE.Color('#8b5cf6'), // Purple
-      new THREE.Color('#10b981'), // Emerald
-      new THREE.Color('#38bdf8')  // Sky blue
+      new THREE.Color('#f59e0b'), // Solar Gold
+      new THREE.Color('#10b981'), // Cyber Emerald
+      new THREE.Color('#fbbf24'), // Warm Amber
+      new THREE.Color('#f43f5e'), // Neon Rose
+      new THREE.Color('#a855f7'), // Royal Amethyst
+      new THREE.Color('#00f59b')  // Electric Mint
     ];
 
     for (let i = 0; i < particleCount; i++) {
@@ -81,8 +82,8 @@ const ThreeHeroScene = () => {
       const ctx = pCanvas.getContext('2d');
       const gradient = ctx.createRadialGradient(16, 16, 0, 16, 16, 16);
       gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
-      gradient.addColorStop(0.3, 'rgba(180, 210, 255, 0.85)');
-      gradient.addColorStop(0.8, 'rgba(99, 102, 241, 0.25)');
+      gradient.addColorStop(0.3, 'rgba(254, 240, 138, 0.9)');
+      gradient.addColorStop(0.7, 'rgba(245, 158, 11, 0.35)');
       gradient.addColorStop(1, 'rgba(0, 0, 0, 0)');
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, 32, 32);
@@ -95,7 +96,7 @@ const ThreeHeroScene = () => {
       vertexColors: true,
       map: createCircleTexture(),
       transparent: true,
-      opacity: 0.85,
+      opacity: 0.9,
       blending: THREE.AdditiveBlending,
       depthWrite: false
     });
@@ -109,10 +110,10 @@ const ThreeHeroScene = () => {
     // Inner Icosahedron
     const icoGeo = new THREE.IcosahedronGeometry(14, 1);
     const icoMat = new THREE.MeshBasicMaterial({
-      color: 0x6366f1,
+      color: 0xf59e0b, // Radiant Gold
       wireframe: true,
       transparent: true,
-      opacity: 0.35
+      opacity: 0.45
     });
     const icoMesh = new THREE.Mesh(icoGeo, icoMat);
     coreGroup.add(icoMesh);
@@ -120,10 +121,10 @@ const ThreeHeroScene = () => {
     // Outer Torus Ring
     const torusGeo = new THREE.TorusGeometry(24, 0.4, 16, 100);
     const torusMat = new THREE.MeshBasicMaterial({
-      color: 0x06b6d4,
+      color: 0x10b981, // Cyber Emerald
       wireframe: true,
       transparent: true,
-      opacity: 0.3
+      opacity: 0.35
     });
     const torusMesh = new THREE.Mesh(torusGeo, torusMat);
     torusMesh.rotation.x = Math.PI / 2.8;
@@ -132,10 +133,10 @@ const ThreeHeroScene = () => {
     // Second inclined orbital ring
     const torus2Geo = new THREE.TorusGeometry(32, 0.3, 16, 100);
     const torus2Mat = new THREE.MeshBasicMaterial({
-      color: 0x8b5cf6,
+      color: 0xf43f5e, // Neon Rose
       wireframe: true,
       transparent: true,
-      opacity: 0.2
+      opacity: 0.25
     });
     const torus2Mesh = new THREE.Mesh(torus2Geo, torus2Mat);
     torus2Mesh.rotation.y = Math.PI / 3.5;

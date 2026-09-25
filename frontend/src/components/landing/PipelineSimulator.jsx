@@ -20,7 +20,7 @@ const stages = [
     key: 'applied',
     label: 'Applied',
     badgeClass: 'badge-applied',
-    color: '#06b6d4',
+    color: '#f59e0b',
     pct: 25,
     company: 'Stripe',
     avatar: 'S',
@@ -158,7 +158,7 @@ const PipelineSimulator = () => {
             className="sim-progress-fill"
             style={{
               width: `${stage.pct}%`,
-              background: `linear-gradient(90deg, #6366f1, ${stage.color})`
+              background: `linear-gradient(90deg, #f59e0b, ${stage.color})`
             }}
           />
           <div className="sim-progress-label">

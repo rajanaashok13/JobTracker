@@ -257,7 +257,7 @@ const LandingPage = () => {
             </MagneticCard>
 
             <MagneticCard className="matrix-feature-card" intensity={10}>
-              <div className="feature-holo-icon" style={{ color: '#06b6d4', borderColor: 'rgba(6, 182, 212, 0.3)' }}>
+              <div className="feature-holo-icon" style={{ color: '#f59e0b', borderColor: 'rgba(245, 158, 11, 0.3)' }}>
                 <ShieldCheck size={24} />
               </div>
               <h3 className="feature-title">Stateless JWT Auth</h3>

@@ -3,16 +3,22 @@ import React from 'react';
 const StatsCard = ({ title, count = 0, icon: Icon, color = 'primary', subtext }) => {
   const colorThemes = {
     primary: {
-      gradient: 'linear-gradient(135deg, #4F46E5, #6366F1)',
+      gradient: 'linear-gradient(135deg, #059669, #10B981)',
       bgLight: 'var(--primary-50)',
       textColor: 'var(--primary-700)',
       border: 'var(--primary-200)'
     },
     blue: {
-      gradient: 'linear-gradient(135deg, #2563EB, #3B82F6)',
-      bgLight: 'rgba(37, 99, 235, 0.1)',
-      textColor: '#2563EB',
-      border: 'rgba(37, 99, 235, 0.2)'
+      gradient: 'linear-gradient(135deg, #7C3AED, #8B5CF6)',
+      bgLight: 'rgba(139, 92, 246, 0.1)',
+      textColor: '#8B5CF6',
+      border: 'rgba(139, 92, 246, 0.2)'
+    },
+    amethyst: {
+      gradient: 'linear-gradient(135deg, #7C3AED, #8B5CF6)',
+      bgLight: 'rgba(139, 92, 246, 0.1)',
+      textColor: '#8B5CF6',
+      border: 'rgba(139, 92, 246, 0.2)'
     },
     amber: {
       gradient: 'linear-gradient(135deg, #D97706, #F59E0B)',
