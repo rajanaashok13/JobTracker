@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const StatChart = ({ stats = { applied: 0, interview: 0, selected: 0, rejected: 0 } }) => {
+const StatChart = ({ stats = { applied: 0, interview: 0, selected: 0, rejected: 0 }, bare = false }) => {
   const [activeTab, setActiveTab] = useState('bar');
 
   const total = (stats.applied || 0) + (stats.interview || 0) + (stats.selected || 0) + (stats.rejected || 0);
@@ -37,41 +37,47 @@ const StatChart = ({ stats = { applied: 0, interview: 0, selected: 0, rejected: 
   const circumference = 2 * Math.PI * radius;
   let accumulatedOffset = 0;
 
-  return (
-    <div className="glass-card" style={{ padding: '1.5rem', height: '100%', display: 'flex', flexDirection: 'column' }}>
+  const content = (
+    <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
         <div>
-          <h3 style={{ fontSize: '1.15rem', fontWeight: 700 }}>Application Analytics</h3>
-          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Status distribution breakdown</p>
+          <h3 style={{ fontSize: '1.15rem', fontWeight: 700, margin: 0, color: '#FFFFFF' }}>Application Analytics</h3>
+          <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: '0.2rem 0 0 0' }}>Status distribution breakdown</p>
         </div>
-        <div style={{ display: 'flex', gap: '0.25rem', backgroundColor: 'var(--bg-tertiary)', padding: '3px', borderRadius: 'var(--radius-md)' }}>
+        <div style={{ display: 'flex', gap: '0.25rem', backgroundColor: 'rgba(255, 255, 255, 0.05)', padding: '3px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
           <button
             onClick={() => setActiveTab('bar')}
             style={{
               padding: '0.35rem 0.75rem',
-              fontSize: '0.8rem',
-              fontWeight: 600,
-              borderRadius: 'var(--radius-sm)',
-              backgroundColor: activeTab === 'bar' ? 'var(--bg-secondary)' : 'transparent',
-              color: activeTab === 'bar' ? 'var(--text-primary)' : 'var(--text-secondary)',
-              boxShadow: activeTab === 'bar' ? 'var(--shadow-sm)' : 'none'
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              fontFamily: 'JetBrains Mono, monospace',
+              borderRadius: '4px',
+              border: 'none',
+              cursor: 'pointer',
+              backgroundColor: activeTab === 'bar' ? 'rgba(16, 185, 129, 0.25)' : 'transparent',
+              color: activeTab === 'bar' ? '#34d399' : '#94a3b8',
+              boxShadow: activeTab === 'bar' ? '0 0 10px rgba(16, 185, 129, 0.3)' : 'none'
             }}
           >
-            Bar
+            [BAR]
           </button>
           <button
             onClick={() => setActiveTab('donut')}
             style={{
               padding: '0.35rem 0.75rem',
-              fontSize: '0.8rem',
-              fontWeight: 600,
-              borderRadius: 'var(--radius-sm)',
-              backgroundColor: activeTab === 'donut' ? 'var(--bg-secondary)' : 'transparent',
-              color: activeTab === 'donut' ? 'var(--text-primary)' : 'var(--text-secondary)',
-              boxShadow: activeTab === 'donut' ? 'var(--shadow-sm)' : 'none'
+              fontSize: '0.75rem',
+              fontWeight: 700,
+              fontFamily: 'JetBrains Mono, monospace',
+              borderRadius: '4px',
+              border: 'none',
+              cursor: 'pointer',
+              backgroundColor: activeTab === 'donut' ? 'rgba(16, 185, 129, 0.25)' : 'transparent',
+              color: activeTab === 'donut' ? '#34d399' : '#94a3b8',
+              boxShadow: activeTab === 'donut' ? '0 0 10px rgba(16, 185, 129, 0.3)' : 'none'
             }}
           >
-            Donut
+            [DONUT]
           </button>
         </div>
       </div>
@@ -186,6 +192,16 @@ const StatChart = ({ stats = { applied: 0, interview: 0, selected: 0, rejected: 
           </div>
         </div>
       )}
+    </div>
+  );
+
+  if (bare) {
+    return content;
+  }
+
+  return (
+    <div className="glass-card" style={{ padding: '1.5rem', height: '100%', display: 'flex', flexDirection: 'column' }}>
+      {content}
     </div>
   );
 };

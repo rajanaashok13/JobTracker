@@ -116,6 +116,11 @@ export const playOfferCelebration = () => {
   }
 };
 
+export const playClickSound = () => {
+  if (!soundEnabled) return;
+  playChime(660, 0.08, 'sine');
+};
+
 const playChime = (freq = 440, duration = 0.1, type = 'sine') => {
   try {
     const ctx = getAudioContext();
