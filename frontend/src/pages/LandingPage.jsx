@@ -2,248 +2,345 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import {
-  Briefcase,
+  Sparkles,
+  ArrowRight,
   TrendingUp,
   Search,
   ShieldCheck,
-  CheckCircle2,
-  ArrowRight,
-  Sparkles,
+  Layers,
   BarChart3,
-  Clock,
-  Layers
+  CheckCircle2,
+  Terminal,
+  Zap,
+  Compass,
+  Briefcase,
+  Flame,
+  Award,
+  ChevronRight
 } from 'lucide-react';
-import '../styles/Landing.css';
+import ThreeHeroScene from '../components/landing/ThreeHeroScene';
+import ChapterNav from '../components/landing/ChapterNav';
+import PipelineSimulator from '../components/landing/PipelineSimulator';
+import CompanyTicker from '../components/landing/CompanyTicker';
+import InteractiveSearchDemo from '../components/landing/InteractiveSearchDemo';
+import AudioToggle from '../components/landing/AudioToggle';
+import MagneticCard from '../components/landing/MagneticCard';
+import { playHoverSound, playOfferCelebration } from '../components/landing/SoundEffects';
+import '../styles/MugenLanding.css';
 
 const LandingPage = () => {
   const { isAuthenticated } = useAuth();
 
   return (
-    <div className="landing-page">
-      {/* Hero Section */}
-      <section className="hero-section">
-        <div className="container hero-container">
-          <div className="hero-content">
-            <div className="hero-badge">
-              <Sparkles size={16} />
-              <span>Job Hunt Supercharged</span>
+    <div className="mugen-landing-page">
+      {/* Three.js Interactive 3D WebGL Canvas Layer */}
+      <ThreeHeroScene />
+
+      {/* Atmospheric Ambient Lighting Gradients */}
+      <div className="mugen-bg-atmosphere" aria-hidden="true">
+        <div className="ambient-light-orb orb-primary" />
+        <div className="ambient-light-orb orb-cyan" />
+        <div className="ambient-light-orb orb-purple" />
+      </div>
+
+      {/* Signature Mugen Vertical Milestone Chapter Rail */}
+      <ChapterNav />
+
+      {/* Floating Audio Micro-interaction Toggle */}
+      <div className="audio-toggle-wrapper">
+        <AudioToggle />
+      </div>
+
+      {/* ====================================================================
+          CHAPTER 01 // RADAR (HERO SECTION)
+          ==================================================================== */}
+      <section className="mugen-hero-section" id="hero-chapter">
+        <div className="container">
+          <div className="hero-matrix-grid">
+            {/* Monumental Left Column */}
+            <div className="hero-monument-content">
+              <div className="cyber-status-badge">
+                <span className="radar-blip" />
+                <span>PROTOCOL // CAREER_MATRIX_V2.5</span>
+              </div>
+
+              <h1 className="monumental-title">
+                <span className="monumental-line-1">ORCHESTRATE</span>
+                <span className="monumental-line-2">YOUR CAREER</span>
+              </h1>
+
+              <p className="monumental-subtitle">
+                Say goodbye to fragmented spreadsheets. <strong>JobTrack</strong> accelerates your hiring journey from <strong>Applied</strong> to <strong>Interview</strong>, <strong>Selection</strong>, and <strong>Offer</strong> with real-time pipeline telemetry and sub-second metrics.
+              </p>
+
+              {/* Action Buttons */}
+              <div className="hero-cta-matrix">
+                {isAuthenticated ? (
+                  <Link
+                    to="/dashboard"
+                    className="btn-cyber-primary"
+                    id="hero-dashboard-btn"
+                    onMouseEnter={playHoverSound}
+                  >
+                    <span>Enter Mission Control</span>
+                    <ArrowRight size={18} />
+                  </Link>
+                ) : (
+                  <>
+                    <Link
+                      to="/register"
+                      className="btn-cyber-primary"
+                      id="hero-get-started-btn"
+                      onMouseEnter={playHoverSound}
+                    >
+                      <span>Start Tracking Free</span>
+                      <ArrowRight size={18} />
+                    </Link>
+                    <Link
+                      to="/login"
+                      className="btn-cyber-secondary"
+                      id="hero-signin-btn"
+                      onMouseEnter={playHoverSound}
+                    >
+                      <span>Sign In</span>
+                    </Link>
+                  </>
+                )}
+              </div>
+
+              {/* Telemetry Micro Stats */}
+              <div className="hero-telemetry-row">
+                <div className="telemetry-item">
+                  <span className="telemetry-num">100%</span>
+                  <span className="telemetry-label">Free & Private</span>
+                </div>
+                <div className="telemetry-divider" />
+                <div className="telemetry-item">
+                  <span className="telemetry-num">4 STAGES</span>
+                  <span className="telemetry-label">Zero-Friction Matrix</span>
+                </div>
+                <div className="telemetry-divider" />
+                <div className="telemetry-item">
+                  <span className="telemetry-num">&lt; 1.0s</span>
+                  <span className="telemetry-label">Real-Time Sync</span>
+                </div>
+              </div>
             </div>
 
-            <h1 className="hero-title">
-              Organize, Track, and Land Your Dream Job with{' '}
-              <span className="gradient-text">JobTrack</span>
-            </h1>
+            {/* Interactive 3D Pipeline Simulator Right Column */}
+            <div className="hero-monument-visual">
+              <PipelineSimulator />
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <p className="hero-subtitle">
-              Say goodbye to messy spreadsheets. Track every application from Applied
-              to Interview, Selection, and Offer with intuitive dashboards and real-time statistics.
+      {/* Kinetic Infinite Company Radar Marquee */}
+      <CompanyTicker />
+
+      {/* ====================================================================
+          CHAPTER 02 // PIPELINE MATRIX (THE 4-STAGE KANBAN CORE)
+          ==================================================================== */}
+      <section className="mugen-section" id="pipeline-chapter">
+        <div className="container">
+          <div className="section-monument-header">
+            <span className="section-code-pill">
+              <Terminal size={14} />
+              <span>CHAPTER 02 // PIPELINE ACCELERATOR</span>
+            </span>
+            <h2 className="section-monument-heading">
+              A 4-STAGE ARCHITECTURE DESIGNED TO LAND OFFERS
+            </h2>
+            <p className="section-monument-desc">
+              Every job opportunity flows through a high-precision pipeline with dedicated notes, follow-up timelines, and 1-click status transitions.
+            </p>
+          </div>
+
+          <div className="telemetry-bento-grid">
+            <MagneticCard className="bento-stat-card" intensity={12}>
+              <div className="bento-stat-icon cyan-glow">
+                <Compass size={22} />
+              </div>
+              <span className="bento-stat-num">01 // APPLIED</span>
+              <h3 className="bento-stat-label">Source & Track Every Lead</h3>
+              <p className="bento-stat-sub">
+                Capture company, job posting link, compensation expectations, and referral sources in under 15 seconds.
+              </p>
+            </MagneticCard>
+
+            <MagneticCard className="bento-stat-card" intensity={12}>
+              <div className="bento-stat-icon purple-glow">
+                <Flame size={22} />
+              </div>
+              <span className="bento-stat-num">02 // INTERVIEW</span>
+              <h3 className="bento-stat-label">Ace Multiple Technical Rounds</h3>
+              <p className="bento-stat-sub">
+                Document recruiter chats, coding challenges, system design debriefs, and behavioral questions in formatted notes.
+              </p>
+            </MagneticCard>
+
+            <MagneticCard className="bento-stat-card" intensity={12}>
+              <div className="bento-stat-icon emerald-glow">
+                <Award size={22} />
+              </div>
+              <span className="bento-stat-num">03 // SELECTED</span>
+              <h3 className="bento-stat-label">Celebrate Round Clearance</h3>
+              <p className="bento-stat-sub">
+                Hiring committee approvals and final round clearings flagged with celebratory milestones and offer prep.
+              </p>
+            </MagneticCard>
+
+            <MagneticCard className="bento-stat-card" intensity={12}>
+              <div className="bento-stat-icon">
+                <Zap size={22} />
+              </div>
+              <span className="bento-stat-num">04 // OFFERS</span>
+              <h3 className="bento-stat-label">Compare & Negotiate</h3>
+              <p className="bento-stat-sub">
+                Side-by-side total compensation comparison with base salary, equity, and remote work flexibility.
+              </p>
+            </MagneticCard>
+          </div>
+        </div>
+      </section>
+
+      {/* ====================================================================
+          CHAPTER 03 // INTELLIGENCE (LIVE SEARCH & FILTER DEMO)
+          ==================================================================== */}
+      <section className="mugen-section" id="intelligence-chapter">
+        <div className="container">
+          <div className="section-monument-header">
+            <span className="section-code-pill">
+              <Search size={14} />
+              <span>CHAPTER 03 // INTERACTIVE SEARCH MATRIX</span>
+            </span>
+            <h2 className="section-monument-heading">
+              TEST THE REAL-TIME MULTI-FILTER ENGINE
+            </h2>
+            <p className="section-monument-desc">
+              Try searching below right now. Filter by company name, role, remote status, or stage in zero milliseconds.
+            </p>
+          </div>
+
+          {/* Real-time interactive search widget */}
+          <InteractiveSearchDemo />
+        </div>
+      </section>
+
+      {/* ====================================================================
+          CHAPTER 04 // TOOLKIT (FEATURES MATRIX)
+          ==================================================================== */}
+      <section className="mugen-section" id="features-chapter">
+        <div className="container">
+          <div className="section-monument-header">
+            <span className="section-code-pill">
+              <Layers size={14} />
+              <span>CHAPTER 04 // ENGINEERING SPECIFICATION</span>
+            </span>
+            <h2 className="section-monument-heading">
+              BUILT FOR SPEED, SECURITY & PORTFOLIO EXCELLENCE
+            </h2>
+            <p className="section-monument-desc">
+              Every component is crafted with modern engineering standards to ensure your career data is responsive and private.
+            </p>
+          </div>
+
+          <div className="features-matrix-grid">
+            <MagneticCard className="matrix-feature-card" intensity={10}>
+              <div className="feature-holo-icon">
+                <BarChart3 size={24} />
+              </div>
+              <h3 className="feature-title">MongoDB Aggregations</h3>
+              <p className="feature-desc">
+                High-performance server-side aggregation pipelines compute live status breakdowns and monthly velocity histograms.
+              </p>
+            </MagneticCard>
+
+            <MagneticCard className="matrix-feature-card" intensity={10}>
+              <div className="feature-holo-icon" style={{ color: '#06b6d4', borderColor: 'rgba(6, 182, 212, 0.3)' }}>
+                <ShieldCheck size={24} />
+              </div>
+              <h3 className="feature-title">Stateless JWT Auth</h3>
+              <p className="feature-desc">
+                10-round salted bcrypt encryption and cryptographic token authorization guarantee strict isolation for your career records.
+              </p>
+            </MagneticCard>
+
+            <MagneticCard className="matrix-feature-card" intensity={10}>
+              <div className="feature-holo-icon" style={{ color: '#10b981', borderColor: 'rgba(16, 185, 129, 0.3)' }}>
+                <Zap size={24} />
+              </div>
+              <h3 className="feature-title">Sub-Second Execution</h3>
+              <p className="feature-desc">
+                Deployed to Vercel Serverless Functions with connection pool caching for lightning-fast queries and 60 FPS transitions.
+              </p>
+            </MagneticCard>
+
+            <MagneticCard className="matrix-feature-card" intensity={10}>
+              <div className="feature-holo-icon" style={{ color: '#f59e0b', borderColor: 'rgba(245, 158, 11, 0.3)' }}>
+                <Sparkles size={24} />
+              </div>
+              <h3 className="feature-title">Cybernetic Themes</h3>
+              <p className="feature-desc">
+                Seamless Dark / Light mode toggle with local storage persistence and glassmorphic depth on every device.
+              </p>
+            </MagneticCard>
+          </div>
+        </div>
+      </section>
+
+      {/* ====================================================================
+          CHAPTER 05 // LAUNCHPAD (FINAL MONUMENTAL CTA)
+          ==================================================================== */}
+      <section className="mugen-cta-section" id="cta-chapter">
+        <div className="container">
+          <div className="launchpad-card">
+            <div className="launchpad-glow" />
+            <span className="section-code-pill">
+              <CheckCircle2 size={14} />
+              <span>CHAPTER 05 // MISSION READY</span>
+            </span>
+
+            <h2 className="launchpad-title">
+              READY TO ACCELERATE YOUR NEXT CAREER MOVE?
+            </h2>
+
+            <p className="launchpad-desc">
+              Join students, developers, and professionals managing their entire career pipeline with precision and confidence.
             </p>
 
-            <div className="hero-cta-group">
+            <div className="launchpad-actions">
               {isAuthenticated ? (
-                <Link to="/dashboard" className="btn btn-primary btn-lg" id="hero-dashboard-btn">
-                  <span>Go to My Dashboard</span>
+                <Link
+                  to="/dashboard"
+                  className="btn-cyber-primary"
+                  id="cta-dashboard-btn"
+                  onMouseEnter={playOfferCelebration}
+                >
+                  <span>Launch Dashboard</span>
                   <ArrowRight size={18} />
                 </Link>
               ) : (
                 <>
-                  <Link to="/register" className="btn btn-primary btn-lg" id="hero-get-started-btn">
-                    <span>Get Started Free</span>
+                  <Link
+                    to="/register"
+                    className="btn-cyber-primary"
+                    id="cta-register-btn"
+                    onMouseEnter={playOfferCelebration}
+                  >
+                    <span>Create Your Free Account</span>
                     <ArrowRight size={18} />
                   </Link>
-                  <Link to="/login" className="btn btn-secondary btn-lg" id="hero-signin-btn">
-                    <span>Sign In</span>
+                  <Link
+                    to="/login"
+                    className="btn-cyber-secondary"
+                    id="cta-login-btn"
+                    onMouseEnter={playHoverSound}
+                  >
+                    <span>Access Account</span>
                   </Link>
                 </>
               )}
-            </div>
-
-            {/* Micro stats banner */}
-            <div className="hero-stats-row">
-              <div className="hero-stat-item">
-                <span className="hero-stat-num">100%</span>
-                <span className="hero-stat-label">Free & Secure</span>
-              </div>
-              <div className="hero-stat-divider" />
-              <div className="hero-stat-item">
-                <span className="hero-stat-num">4 Stages</span>
-                <span className="hero-stat-label">Clear Status Tracking</span>
-              </div>
-              <div className="hero-stat-divider" />
-              <div className="hero-stat-item">
-                <span className="hero-stat-num">Instant</span>
-                <span className="hero-stat-label">Analytics & Charts</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Hero Visual Showcase */}
-          <div className="hero-visual">
-            <div className="showcase-card glass-card">
-              <div className="showcase-header">
-                <div className="showcase-dots">
-                  <span className="dot dot-red" />
-                  <span className="dot dot-yellow" />
-                  <span className="dot dot-green" />
-                </div>
-                <span className="showcase-title">JobTrack Application Matrix</span>
-                <span className="live-pill">Live Pipeline</span>
-              </div>
-
-              <div className="showcase-body">
-                {/* Mock Job 1 */}
-                <div className="mock-job-card">
-                  <div className="mock-job-left">
-                    <div className="mock-company-avatar google-avatar">G</div>
-                    <div>
-                      <div className="mock-job-title">Software Engineer</div>
-                      <div className="mock-job-sub">Google • Mountain View, CA (Hybrid)</div>
-                    </div>
-                  </div>
-                  <span className="mock-badge interview-badge">Interview</span>
-                </div>
-
-                {/* Mock Job 2 */}
-                <div className="mock-job-card">
-                  <div className="mock-job-left">
-                    <div className="mock-company-avatar microsoft-avatar">M</div>
-                    <div>
-                      <div className="mock-job-title">Full Stack Developer</div>
-                      <div className="mock-job-sub">Microsoft • Redmond, WA (Remote)</div>
-                    </div>
-                  </div>
-                  <span className="mock-badge selected-badge">Selected 🎉</span>
-                </div>
-
-                {/* Mock Job 3 */}
-                <div className="mock-job-card">
-                  <div className="mock-job-left">
-                    <div className="mock-company-avatar stripe-avatar">S</div>
-                    <div>
-                      <div className="mock-job-title">Frontend Engineer</div>
-                      <div className="mock-job-sub">Stripe • San Francisco, CA</div>
-                    </div>
-                  </div>
-                  <span className="mock-badge applied-badge">Applied</span>
-                </div>
-
-                {/* Mini Stat bar */}
-                <div className="showcase-chart-preview">
-                  <div className="chart-preview-label">
-                    <span>Interview Conversion</span>
-                    <span className="chart-preview-pct">75%</span>
-                  </div>
-                  <div className="chart-preview-bar">
-                    <div className="chart-preview-fill" style={{ width: '75%' }} />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="features-section" id="features">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-eyebrow">Comprehensive Toolkit</span>
-            <h2 className="section-heading">Everything You Need To Master Your Job Pipeline</h2>
-            <p className="section-subtext">
-              Designed specifically for students, fresh graduates, and career changers looking to organize their job search.
-            </p>
-          </div>
-
-          <div className="features-grid">
-            <div className="feature-card glass-card">
-              <div className="feature-icon-wrapper blue-icon">
-                <Layers size={24} />
-              </div>
-              <h3 className="feature-card-title">4-Stage Pipeline</h3>
-              <p className="feature-card-desc">
-                Seamlessly categorize applications into Applied, Interview, Selected, or Rejected. Update them anytime as your interview process progresses.
-              </p>
-            </div>
-
-            <div className="feature-card glass-card">
-              <div className="feature-icon-wrapper purple-icon">
-                <BarChart3 size={24} />
-              </div>
-              <h3 className="feature-card-title">Visual Analytics</h3>
-              <p className="feature-card-desc">
-                See your application statistics, interview conversion rates, and volume at a glance with clean interactive Bar and Donut charts.
-              </p>
-            </div>
-
-            <div className="feature-card glass-card">
-              <div className="feature-icon-wrapper cyan-icon">
-                <Search size={24} />
-              </div>
-              <h3 className="feature-card-title">Instant Search & Filter</h3>
-              <p className="feature-card-desc">
-                Find any application in milliseconds. Filter by company name, job role, status, or search through custom interview notes.
-              </p>
-            </div>
-
-            <div className="feature-card glass-card">
-              <div className="feature-icon-wrapper emerald-icon">
-                <ShieldCheck size={24} />
-              </div>
-              <h3 className="feature-card-title">Secure & Private</h3>
-              <p className="feature-card-desc">
-                Built with industry standard JWT token authentication and bcrypt password encryption. Your applications and notes are strictly private.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* How it Works Section */}
-      <section className="how-it-works-section" id="how-it-works">
-        <div className="container">
-          <div className="section-header">
-            <span className="section-eyebrow">Simple Workflow</span>
-            <h2 className="section-heading">Get Started in 3 Simple Steps</h2>
-          </div>
-
-          <div className="steps-grid">
-            <div className="step-card glass-card">
-              <div className="step-number">01</div>
-              <h4 className="step-title">Create Free Account</h4>
-              <p className="step-desc">
-                Register with your name and email in under 30 seconds. No credit card required.
-              </p>
-            </div>
-
-            <div className="step-card glass-card">
-              <div className="step-number">02</div>
-              <h4 className="step-title">Log Job Applications</h4>
-              <p className="step-desc">
-                Record company details, salary, posting link, interview dates, and custom notes.
-              </p>
-            </div>
-
-            <div className="step-card glass-card">
-              <div className="step-number">03</div>
-              <h4 className="step-title">Track & Ace Interviews</h4>
-              <p className="step-desc">
-                Keep notes for every round, follow up on time, and track your progress to an offer.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Bottom CTA */}
-      <section className="cta-banner-section">
-        <div className="container">
-          <div className="cta-banner glass-card">
-            <h2>Ready to Take Control of Your Career?</h2>
-            <p>Join thousands of candidates organizing their job search with clarity and confidence.</p>
-            <div className="cta-banner-buttons">
-              <Link to="/register" className="btn btn-primary btn-lg" id="bottom-cta-register">
-                Start Tracking Today – It's Free
-              </Link>
             </div>
           </div>
         </div>
