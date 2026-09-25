@@ -5,6 +5,11 @@ const mongoose = require('mongoose');
  * The connection string is retrieved from MONGODB_URI environment variable
  */
 const connectDB = async () => {
+  // If already connected or connecting, return existing connection
+  if (mongoose.connection.readyState >= 1) {
+    return mongoose.connection;
+  }
+
   try {
     const connString = process.env.MONGODB_URI;
 
@@ -19,6 +24,7 @@ const connectDB = async () => {
 
     const conn = await mongoose.connect(connString);
     console.log(`✅ MongoDB Connected: ${conn.connection.host}`);
+    return conn;
   } catch (error) {
     console.error('\n============================================================');
     console.error(`❌ MongoDB Connection Error: ${error.message}`);
