@@ -4,6 +4,11 @@ A production-grade, full-stack **MERN** (MongoDB, Express.js, React.js, Node.js)
 
 Built for academic demonstrations, college capstone portfolios, and real-world daily use.
 
+### 🌐 Live Production Links
+* **Live Web App**: [https://jobtrack-ashok.vercel.app](https://jobtrack-ashok.vercel.app)
+* **Backend REST API**: [https://jobtrack-backend.vercel.app](https://jobtrack-backend.vercel.app)
+* **Health Check**: [https://jobtrack-backend.vercel.app/api/health](https://jobtrack-backend.vercel.app/api/health)
+
 ---
 
 ## 🌟 Key Features
