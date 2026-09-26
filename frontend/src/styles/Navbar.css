@@ -32,12 +32,12 @@
   width: 38px;
   height: 38px;
   border-radius: var(--radius-md);
-  background: linear-gradient(135deg, #10b981, #f59e0b);
+  background: linear-gradient(135deg, #f59e0b, #ff6b35);
   display: flex;
   align-items: center;
   justify-content: center;
   color: #FFFFFF;
-  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.45);
   transition: transform var(--transition-fast);
 }
 
@@ -80,7 +80,7 @@
 }
 
 [data-theme='dark'] .nav-link.active {
-  background-color: rgba(99, 102, 241, 0.15);
+  background-color: rgba(245, 158, 11, 0.15);
   color: var(--primary-400);
 }
 

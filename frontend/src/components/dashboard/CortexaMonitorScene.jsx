@@ -64,69 +64,69 @@ const CortexaMonitorScene = () => {
       return new THREE.BufferGeometry().setFromPoints(points3D);
     };
 
-    // --- Materials (100% Non-Blue: Emerald, Gold, Obsidian) ---
+    // --- Materials (100% ZERO BLUE, ZERO GREEN: Solar Gold, Lava Orange, Amethyst) ---
     const matBezelComb = new THREE.LineBasicMaterial({
-      color: 0x059669,
+      color: 0xd97706,
       transparent: true,
-      opacity: 0.35,
+      opacity: 0.4,
       blending: THREE.AdditiveBlending
     });
 
     const matLitInnerLip = new THREE.LineBasicMaterial({
-      color: 0x10b981,
+      color: 0xfbbf24,
+      transparent: true,
+      opacity: 0.95,
+      blending: THREE.AdditiveBlending
+    });
+
+    const matSecondaryLip = new THREE.LineBasicMaterial({
+      color: 0x8b5cf6,
+      transparent: true,
+      opacity: 0.5,
+      blending: THREE.AdditiveBlending
+    });
+
+    const matCabinetCone = new THREE.LineBasicMaterial({
+      color: 0x92400e,
+      transparent: true,
+      opacity: 0.25,
+      blending: THREE.AdditiveBlending
+    });
+
+    const matGraticule = new THREE.LineBasicMaterial({
+      color: 0xf59e0b,
+      transparent: true,
+      opacity: 0.12,
+      blending: THREE.AdditiveBlending
+    });
+
+    const matBrackets = new THREE.LineBasicMaterial({
+      color: 0xfbbf24,
       transparent: true,
       opacity: 0.9,
       blending: THREE.AdditiveBlending
     });
 
-    const matSecondaryLip = new THREE.LineBasicMaterial({
-      color: 0xf59e0b,
-      transparent: true,
-      opacity: 0.45,
-      blending: THREE.AdditiveBlending
-    });
-
-    const matCabinetCone = new THREE.LineBasicMaterial({
-      color: 0x047857,
-      transparent: true,
-      opacity: 0.2,
-      blending: THREE.AdditiveBlending
-    });
-
-    const matGraticule = new THREE.LineBasicMaterial({
-      color: 0x10b981,
-      transparent: true,
-      opacity: 0.14,
-      blending: THREE.AdditiveBlending
-    });
-
-    const matBrackets = new THREE.LineBasicMaterial({
-      color: 0xf59e0b,
-      transparent: true,
-      opacity: 0.85,
-      blending: THREE.AdditiveBlending
-    });
-
     const matTrace1 = new THREE.LineBasicMaterial({
-      color: 0x10b981,
+      color: 0xff6b35,
       transparent: true,
-      opacity: 0.85,
+      opacity: 0.9,
       blending: THREE.AdditiveBlending,
       linewidth: 2
     });
 
     const matTrace2 = new THREE.LineBasicMaterial({
-      color: 0xf59e0b,
+      color: 0x8b5cf6,
       transparent: true,
-      opacity: 0.75,
+      opacity: 0.8,
       blending: THREE.AdditiveBlending,
       linewidth: 1.5
     });
 
     const matRasterBeam = new THREE.LineBasicMaterial({
-      color: 0x34d399,
+      color: 0xfbbf24,
       transparent: true,
-      opacity: 0.65,
+      opacity: 0.7,
       blending: THREE.AdditiveBlending
     });
 
@@ -299,8 +299,9 @@ const CortexaMonitorScene = () => {
     const particlePositions = new Float32Array(particleCount * 3);
     const particleColors = new Float32Array(particleCount * 3);
 
-    const emeraldColor = new THREE.Color(0x10b981);
+    const lavaColor = new THREE.Color(0xff6b35);
     const amberColor = new THREE.Color(0xf59e0b);
+    const amethystColor = new THREE.Color(0x8b5cf6);
 
     for (let p = 0; p < particleCount; p++) {
       const idx = p * 3;
@@ -308,7 +309,8 @@ const CortexaMonitorScene = () => {
       particlePositions[idx + 1] = (Math.random() - 0.5) * 10;
       particlePositions[idx + 2] = (Math.random() - 0.5) * 8;
 
-      const c = Math.random() > 0.4 ? emeraldColor : amberColor;
+      const rand = Math.random();
+      const c = rand < 0.45 ? amberColor : rand < 0.75 ? lavaColor : amethystColor;
       particleColors[idx] = c.r;
       particleColors[idx + 1] = c.g;
       particleColors[idx + 2] = c.b;

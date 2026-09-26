@@ -3,6 +3,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { Mail, Lock, Eye, EyeOff, LogIn, Sparkles, ArrowRight } from 'lucide-react';
 import AlertMessage from '../components/AlertMessage';
+import BrandLogo from '../components/BrandLogo';
 import '../styles/Auth.css';
 
 const LoginPage = () => {
@@ -54,6 +55,9 @@ const LoginPage = () => {
   return (
     <div className="auth-page">
       <div className="auth-card glass-card">
+        <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '1.25rem' }}>
+          <BrandLogo size="md" badgeText="AUTH" />
+        </div>
         <div className="auth-header">
           <div className="auth-icon-badge">
             <LogIn size={24} />

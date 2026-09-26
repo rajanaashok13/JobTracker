@@ -1,0 +1,211 @@
+/* Career Milestone Chips Styles */
+
+.career-milestone-chips-wrapper {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  overflow: hidden;
+}
+
+.career-milestone-chip {
+  position: absolute;
+  width: 290px;
+  padding: 0.85rem 1rem;
+  background: rgba(13, 16, 26, 0.78);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: transform 0.4s ease, border-color 0.3s ease;
+  animation: floatMilestoneChip 6s ease-in-out infinite alternate;
+}
+
+/* Individual Positioning */
+.chip-pos-top-left {
+  top: 14%;
+  left: 3%;
+  border-left: 3px solid #f59e0b;
+  animation-delay: 0s;
+}
+
+.chip-pos-bottom-left {
+  bottom: 12%;
+  left: 4%;
+  border-left: 3px solid #8b5cf6;
+  animation-delay: -2s;
+}
+
+.chip-pos-top-right {
+  top: 18%;
+  right: 3%;
+  border-left: 3px solid #10b981;
+  animation-delay: -3.5s;
+}
+
+.chip-pos-bottom-right {
+  bottom: 14%;
+  right: 4%;
+  border-left: 3px solid #ff6b35;
+  animation-delay: -5s;
+}
+
+@keyframes floatMilestoneChip {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Header */
+.milestone-chip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.55rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.milestone-stage-label {
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #94a3b8;
+}
+
+.milestone-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.badge-chip-applied {
+  background: rgba(245, 158, 11, 0.15);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.badge-chip-interview {
+  background: rgba(139, 92, 246, 0.15);
+  color: #c4b5fd;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.badge-chip-selected {
+  background: rgba(16, 185, 129, 0.15);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+}
+
+.badge-chip-offer {
+  background: rgba(255, 107, 53, 0.15);
+  color: #fdba74;
+  border: 1px solid rgba(255, 107, 53, 0.3);
+}
+
+.milestone-pulse-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  box-shadow: 0 0 6px currentColor;
+}
+
+/* Body */
+.milestone-chip-body {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.milestone-icon-box {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #f1f5f9;
+  flex-shrink: 0;
+}
+
+.milestone-info {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.milestone-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #f8fafc;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.milestone-company {
+  color: #fbbf24;
+}
+
+.milestone-role-divider {
+  color: #64748b;
+}
+
+.milestone-role {
+  color: #e2e8f0;
+  font-weight: 500;
+}
+
+.milestone-sub-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  font-size: 0.72rem;
+  margin-top: 0.15rem;
+}
+
+.milestone-metric-highlight {
+  color: #34d399;
+  font-weight: 600;
+}
+
+.milestone-time {
+  color: #64748b;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+}
+
+/* Hide on medium and small screens to avoid clutter */
+@media (max-width: 1200px) {
+  .career-milestone-chip {
+    width: 250px;
+    padding: 0.7rem 0.85rem;
+  }
+  .chip-pos-top-left { left: 1%; }
+  .chip-pos-bottom-left { left: 1%; }
+  .chip-pos-top-right { right: 1%; }
+  .chip-pos-bottom-right { right: 1%; }
+}
+
+@media (max-width: 992px) {
+  .career-milestone-chips-wrapper {
+    display: none;
+  }
+}

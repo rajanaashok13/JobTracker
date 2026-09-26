@@ -1,63 +1,63 @@
 import React from 'react';
+import { Send, CalendarCheck, CheckCircle2, XCircle } from 'lucide-react';
+import './StatusBadge.css';
 
-const StatusBadge = ({ status }) => {
+/**
+ * StatusBadge Component
+ * Well-labeled, animated status indicator for job application states:
+ * - Applied (Amber beacon)
+ * - Interview (Violet active pulse)
+ * - Selected (Emerald celebration shimmer)
+ * - Rejected (Subtle slate/rose badge)
+ */
+const StatusBadge = ({ status, showIcon = true, size = 'md' }) => {
   const normalizedStatus = status || 'Applied';
 
-  const statusStyles = {
+  const configs = {
     Applied: {
-      bg: 'var(--status-applied-bg)',
-      color: 'var(--status-applied-text)',
-      border: 'var(--status-applied-border)',
-      dotColor: '#2563EB'
+      label: 'Applied',
+      sublabel: 'Under Review',
+      badgeClass: 'status-badge-applied',
+      icon: Send,
+      color: '#f59e0b'
     },
     Interview: {
-      bg: 'var(--status-interview-bg)',
-      color: 'var(--status-interview-text)',
-      border: 'var(--status-interview-border)',
-      dotColor: '#D97706'
+      label: 'Interview',
+      sublabel: 'Active Rounds',
+      badgeClass: 'status-badge-interview',
+      icon: CalendarCheck,
+      color: '#8b5cf6'
     },
     Selected: {
-      bg: 'var(--status-selected-bg)',
-      color: 'var(--status-selected-text)',
-      border: 'var(--status-selected-border)',
-      dotColor: '#059669'
+      label: 'Selected',
+      sublabel: 'Offer / Cleared',
+      badgeClass: 'status-badge-selected',
+      icon: CheckCircle2,
+      color: '#10b981'
     },
     Rejected: {
-      bg: 'var(--status-rejected-bg)',
-      color: 'var(--status-rejected-text)',
-      border: 'var(--status-rejected-border)',
-      dotColor: '#DC2626'
+      label: 'Archived',
+      sublabel: 'Closed',
+      badgeClass: 'status-badge-rejected',
+      icon: XCircle,
+      color: '#f43f5e'
     }
   };
 
-  const style = statusStyles[normalizedStatus] || statusStyles.Applied;
+  const current = configs[normalizedStatus] || configs.Applied;
+  const IconComponent = current.icon;
 
   return (
     <span
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        gap: '0.4rem',
-        padding: '0.28rem 0.75rem',
-        borderRadius: 'var(--radius-full)',
-        backgroundColor: style.bg,
-        color: style.color,
-        border: `1px solid ${style.border}`,
-        fontSize: '0.8rem',
-        fontWeight: 600,
-        letterSpacing: '0.02em',
-        textTransform: 'capitalize'
-      }}
+      className={`status-badge-root ${current.badgeClass} size-${size}`}
+      title={`Application Status: ${current.label} (${current.sublabel})`}
     >
-      <span
-        style={{
-          width: '6px',
-          height: '6px',
-          borderRadius: '50%',
-          backgroundColor: style.dotColor
-        }}
-      />
-      {normalizedStatus}
+      <span className="status-badge-dot-wrapper">
+        <span className="status-badge-dot" />
+        <span className="status-badge-pulse" />
+      </span>
+      {showIcon && <IconComponent size={13} className="status-badge-icon" />}
+      <span className="status-badge-text">{current.label}</span>
     </span>
   );
 };

@@ -18,7 +18,8 @@ import {
   Award,
   ChevronRight
 } from 'lucide-react';
-import ThreeHeroScene from '../components/landing/ThreeHeroScene';
+import CareerPipelineBackground from '../components/landing/CareerPipelineBackground';
+import CareerMilestoneChips from '../components/landing/CareerMilestoneChips';
 import ChapterNav from '../components/landing/ChapterNav';
 import PipelineSimulator from '../components/landing/PipelineSimulator';
 import CompanyTicker from '../components/landing/CompanyTicker';
@@ -33,15 +34,19 @@ const LandingPage = () => {
 
   return (
     <div className="mugen-landing-page">
-      {/* Three.js Interactive 3D WebGL Canvas Layer */}
-      <ThreeHeroScene />
+      {/* 3D Career Pipeline & Application Network WebGL Canvas */}
+      <CareerPipelineBackground />
 
-      {/* Atmospheric Ambient Lighting Gradients */}
-      <div className="mugen-bg-atmosphere" aria-hidden="true">
-        <div className="ambient-light-orb orb-primary" />
-        <div className="ambient-light-orb orb-cyan" />
-        <div className="ambient-light-orb orb-purple" />
+      {/* Atmospheric Ambient Aurora & Tech Matrix Grid (Zero Floating Bubbles) */}
+      <div className="career-bg-atmosphere" aria-hidden="true">
+        <div className="career-aurora-glow-1" />
+        <div className="career-aurora-glow-2" />
+        <div className="career-aurora-glow-3" />
+        <div className="career-grid-matrix-overlay" />
       </div>
+
+      {/* Floating Well-Labeled Job Application Milestone Chips */}
+      <CareerMilestoneChips />
 
       {/* Signature Mugen Vertical Milestone Chapter Rail */}
       <ChapterNav />

@@ -1,0 +1,349 @@
+/* JobApplicationPipelineTracker Styles */
+
+.job-pipeline-tracker-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  padding: 1.35rem 1.5rem;
+  background: rgba(15, 18, 28, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+[data-theme='light'] .job-pipeline-tracker-container {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: #e2e8f0;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+/* Header */
+.pipeline-tracker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pipeline-tracker-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.pipeline-live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: 'JetBrains Mono', 'Consolas', monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: #f59e0b;
+}
+
+.pipeline-pulse-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #10b981;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseBeacon 2s infinite ease-in-out;
+}
+
+@keyframes pulseBeacon {
+  0%, 100% { opacity: 0.8; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.3); }
+}
+
+.pipeline-tracker-heading {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-size: 1.12rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: #f8fafc;
+  margin: 0;
+}
+
+[data-theme='light'] .pipeline-tracker-heading {
+  color: #0f172a;
+}
+
+.pipeline-velocity-chips {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.velocity-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.78rem;
+  color: #cbd5e1;
+}
+
+[data-theme='light'] .velocity-chip {
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #475569;
+}
+
+.velocity-chip strong {
+  color: #f8fafc;
+}
+
+[data-theme='light'] .velocity-chip strong {
+  color: #0f172a;
+}
+
+/* 4-Stage Track */
+.pipeline-stages-track {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+/* Stage Card */
+.pipeline-stage-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 1.15rem;
+  background: rgba(22, 27, 42, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+[data-theme='light'] .pipeline-stage-card {
+  background: #f8fafc;
+  border-color: #e2e8f0;
+}
+
+.pipeline-stage-card:hover {
+  transform: translateY(-2px);
+  background: rgba(27, 33, 52, 0.85);
+  border-color: rgba(245, 158, 11, 0.3);
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='light'] .pipeline-stage-card:hover {
+  background: #ffffff;
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 20px -4px rgba(0, 0, 0, 0.08);
+}
+
+.pipeline-stage-card.is-active-filter {
+  background: rgba(30, 38, 60, 0.95);
+  border-color: rgba(245, 158, 11, 0.6);
+  box-shadow: 0 0 20px -5px rgba(245, 158, 11, 0.3);
+}
+
+[data-theme='light'] .pipeline-stage-card.is-active-filter {
+  background: #ffffff;
+  border-color: #d97706;
+  box-shadow: 0 0 20px -5px rgba(245, 158, 11, 0.2);
+}
+
+/* Card Top */
+.stage-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.65rem;
+}
+
+.stage-step-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #94a3b8;
+}
+
+.stage-icon-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: transform 0.2s ease;
+}
+
+.pipeline-stage-card:hover .stage-icon-circle {
+  transform: scale(1.08);
+}
+
+/* Specific Accent Colors */
+.stage-applied .stage-icon-circle {
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.3);
+}
+
+.stage-interview .stage-icon-circle {
+  color: #c4b5fd;
+  border-color: rgba(139, 92, 246, 0.3);
+}
+
+.stage-selected .stage-icon-circle {
+  color: #6ee7b7;
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.stage-offer .stage-icon-circle {
+  color: #fdba74;
+  border-color: rgba(255, 107, 53, 0.3);
+}
+
+/* Card Body */
+.stage-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.stage-count {
+  font-family: var(--font-heading, sans-serif);
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #f8fafc;
+}
+
+[data-theme='light'] .stage-count {
+  color: #0f172a;
+}
+
+.stage-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #e2e8f0;
+  margin-top: 0.35rem;
+}
+
+[data-theme='light'] .stage-name {
+  color: #1e293b;
+}
+
+.stage-sub {
+  font-size: 0.72rem;
+  color: #94a3b8;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Card Footer */
+.stage-footer {
+  margin-top: 0.85rem;
+  display: flex;
+  align-items: center;
+}
+
+.stage-metric-badge {
+  display: inline-block;
+  padding: 0.15rem 0.55rem;
+  border-radius: 9999px;
+  background: rgba(255, 255, 255, 0.05);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: #cbd5e1;
+}
+
+[data-theme='light'] .stage-metric-badge {
+  background: #f1f5f9;
+  color: #475569;
+}
+
+/* Active Line */
+.stage-active-line {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #f59e0b, #ff6b35);
+  box-shadow: 0 0 10px #f59e0b;
+}
+
+/* Conduit Connecting Pipe */
+.pipeline-conduit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 20px;
+}
+
+.conduit-line {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.conduit-pulse {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
+  animation: conduitTravel 2.4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.conduit-arrow {
+  position: absolute;
+  right: -2px;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+@keyframes conduitTravel {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 1;
+  }
+  100% {
+    left: calc(100% - 6px);
+    opacity: 0;
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .pipeline-stages-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .pipeline-conduit {
+    display: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .pipeline-stages-track {
+    grid-template-columns: 1fr;
+  }
+}

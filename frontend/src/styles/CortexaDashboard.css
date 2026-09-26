@@ -1,36 +1,41 @@
 /* ==========================================================================
    CORTEXA MONITOR DASHBOARD - RETRO-FUTURISTIC COMMAND CENTER STYLESHEET
-   Inspired by ThreeUI "Cortexa Silhouette — Monitor"
-   Theme: Cyber Emerald, Solar Gold, Royal Amethyst, Void Obsidian (ZERO BLUE)
+   Theme: Solar Gold, Blaze Orange, Royal Amethyst, Void Obsidian
+   STRICTLY 100% ZERO BLUE & ZERO GREEN
    ========================================================================== */
 
 /* Root Dashboard Container */
 .cortexa-dashboard-wrapper {
   position: relative;
   min-height: 100vh;
-  color: #f1f5f9;
+  color: #f8fafc;
   background-color: transparent;
   font-family: var(--font-sans, system-ui, sans-serif);
   padding-bottom: 5rem;
   z-index: 1;
 }
 
-/* Subtle CRT Scanline & Phosphor Vignette Texture */
+/* Modern Executive Background Ambient Aura & Clean Depth (Zero Scanlines / Zero Distortion) */
 .cortexa-crt-overlay {
   position: fixed;
   inset: 0;
   pointer-events: none;
   z-index: 1;
   background: 
-    radial-gradient(circle at 50% 35%, rgba(16, 185, 129, 0.02) 0%, rgba(6, 8, 11, 0.65) 100%),
-    repeating-linear-gradient(
-      0deg,
-      rgba(16, 185, 129, 0.012) 0px,
-      rgba(16, 185, 129, 0.012) 1px,
-      transparent 1px,
-      transparent 3px
-    );
-  opacity: 0.85;
+    radial-gradient(ellipse at 50% 15%, rgba(245, 158, 11, 0.08) 0%, transparent 65%),
+    radial-gradient(ellipse at 85% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 75%, rgba(16, 185, 129, 0.05) 0%, transparent 50%);
+  opacity: 0.95;
+}
+
+[data-theme='light'] .cortexa-dashboard-wrapper {
+  color: #0f172a;
+}
+
+[data-theme='light'] .cortexa-crt-overlay {
+  background: 
+    radial-gradient(ellipse at 50% 15%, rgba(245, 158, 11, 0.06) 0%, transparent 65%),
+    radial-gradient(ellipse at 85% 80%, rgba(99, 102, 241, 0.04) 0%, transparent 55%);
 }
 
 /* Content Container */
@@ -53,11 +58,11 @@
   flex-wrap: wrap;
   gap: 1rem;
   padding: 0.75rem 1.25rem;
-  background: rgba(10, 14, 20, 0.75);
+  background: rgba(13, 15, 23, 0.78);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(245, 158, 11, 0.22);
   border-radius: 8px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(16, 185, 129, 0.04);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(245, 158, 11, 0.04);
 }
 
 .cortexa-status-nodes {
@@ -78,21 +83,26 @@
 }
 
 .status-node.active {
-  color: #34d399;
+  color: #fbbf24;
 }
 
 .led-indicator {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background-color: #10b981;
-  box-shadow: 0 0 8px #10b981;
+  background-color: #f59e0b;
+  box-shadow: 0 0 8px #f59e0b;
   animation: crtLedPulse 2s infinite ease-in-out;
 }
 
-.led-indicator.gold {
-  background-color: #f59e0b;
-  box-shadow: 0 0 8px #f59e0b;
+.led-indicator.amethyst {
+  background-color: #8b5cf6;
+  box-shadow: 0 0 8px #8b5cf6;
+}
+
+.led-indicator.orange {
+  background-color: #ff6b35;
+  box-shadow: 0 0 8px #ff6b35;
 }
 
 @keyframes crtLedPulse {
@@ -119,9 +129,9 @@
   flex-wrap: wrap;
   gap: 1.5rem;
   padding: 1.5rem;
-  background: rgba(10, 14, 20, 0.7);
+  background: rgba(13, 15, 23, 0.75);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  border: 1px solid rgba(245, 158, 11, 0.25);
   border-radius: 12px;
   position: relative;
   overflow: hidden;
@@ -135,7 +145,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: linear-gradient(90deg, #10b981, #f59e0b, transparent);
+  background: linear-gradient(90deg, #f59e0b, #ff6b35, #8b5cf6, transparent);
 }
 
 .cortexa-operator-callout {
@@ -144,9 +154,9 @@
   gap: 0.5rem;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.75rem;
-  color: #10b981;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
   padding: 0.2rem 0.6rem;
   border-radius: 4px;
   margin-bottom: 0.5rem;
@@ -161,18 +171,18 @@
   line-height: 1.2;
 }
 
-.cortexa-title .glow-emerald {
-  background: linear-gradient(135deg, #10b981, #34d399);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 20px rgba(16, 185, 129, 0.25);
-}
-
 .cortexa-title .glow-gold {
   background: linear-gradient(135deg, #f59e0b, #fbbf24);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 20px rgba(245, 158, 11, 0.25);
+  text-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+}
+
+.cortexa-title .glow-orange {
+  background: linear-gradient(135deg, #ff6b35, #f59e0b);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(255, 107, 53, 0.3);
 }
 
 .cortexa-subtitle {
@@ -195,34 +205,8 @@
   align-items: center;
   gap: 0.6rem;
   padding: 0.75rem 1.4rem;
-  background: linear-gradient(135deg, #059669, #10b981);
-  color: #06080b;
-  font-weight: 700;
-  font-size: 0.9rem;
-  font-family: 'JetBrains Mono', monospace;
-  letter-spacing: 0.04em;
-  border-radius: 6px;
-  border: 1px solid #34d399;
-  text-decoration: none;
-  cursor: pointer;
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-  transition: all 0.2s ease;
-}
-
-.btn-cortexa-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(16, 185, 129, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.5);
-  background: linear-gradient(135deg, #10b981, #34d399);
-  color: #06080b;
-}
-
-.btn-cortexa-gold {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  padding: 0.75rem 1.4rem;
   background: linear-gradient(135deg, #d97706, #f59e0b);
-  color: #06080b;
+  color: #08090d;
   font-weight: 700;
   font-size: 0.9rem;
   font-family: 'JetBrains Mono', monospace;
@@ -231,14 +215,40 @@
   border: 1px solid #fbbf24;
   text-decoration: none;
   cursor: pointer;
-  box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+  box-shadow: 0 0 20px rgba(245, 158, 11, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
   transition: all 0.2s ease;
 }
 
-.btn-cortexa-gold:hover {
+.btn-cortexa-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 30px rgba(245, 158, 11, 0.6);
-  color: #06080b;
+  box-shadow: 0 0 30px rgba(245, 158, 11, 0.65), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  color: #08090d;
+}
+
+.btn-cortexa-orange {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.75rem 1.4rem;
+  background: linear-gradient(135deg, #ea580c, #ff6b35);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.9rem;
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.04em;
+  border-radius: 6px;
+  border: 1px solid #ff8800;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+  transition: all 0.2s ease;
+}
+
+.btn-cortexa-orange:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(255, 107, 53, 0.6);
+  color: #ffffff;
 }
 
 /* Tactical Telemetry Metric Pods (5 Grid) */
@@ -251,7 +261,7 @@
 .cortexa-stat-pod {
   position: relative;
   padding: 1.4rem;
-  background: rgba(10, 14, 20, 0.7);
+  background: rgba(13, 15, 23, 0.75);
   backdrop-filter: blur(14px);
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
@@ -269,8 +279,8 @@
   left: 0;
   width: 14px;
   height: 14px;
-  border-top: 2px solid #10b981;
-  border-left: 2px solid #10b981;
+  border-top: 2px solid #f59e0b;
+  border-left: 2px solid #f59e0b;
 }
 
 .cortexa-stat-pod::after {
@@ -280,13 +290,13 @@
   right: 0;
   width: 14px;
   height: 14px;
-  border-bottom: 2px solid #10b981;
-  border-right: 2px solid #10b981;
+  border-bottom: 2px solid #f59e0b;
+  border-right: 2px solid #f59e0b;
 }
 
 .cortexa-stat-pod.pod-applied::before,
 .cortexa-stat-pod.pod-applied::after {
-  border-color: #f59e0b;
+  border-color: #d97706;
 }
 
 .cortexa-stat-pod.pod-interview::before,
@@ -296,7 +306,7 @@
 
 .cortexa-stat-pod.pod-selected::before,
 .cortexa-stat-pod.pod-selected::after {
-  border-color: #10b981;
+  border-color: #ff6b35;
 }
 
 .cortexa-stat-pod.pod-rejected::before,
@@ -306,9 +316,9 @@
 
 .cortexa-stat-pod:hover {
   transform: translateY(-3px);
-  background: rgba(13, 18, 26, 0.85);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-  border-color: rgba(255, 255, 255, 0.18);
+  background: rgba(18, 21, 32, 0.88);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
+  border-color: rgba(245, 158, 11, 0.3);
 }
 
 .stat-pod-top {
@@ -321,7 +331,7 @@
 .stat-pod-tag {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.72rem;
-  color: #64748b;
+  color: #f59e0b;
   letter-spacing: 0.08em;
 }
 
@@ -332,33 +342,33 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(16, 185, 129, 0.1);
-  color: #10b981;
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+  border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
 .pod-applied .stat-pod-icon-box {
-  background: rgba(245, 158, 11, 0.1);
-  color: #f59e0b;
-  border-color: rgba(245, 158, 11, 0.25);
+  background: rgba(217, 119, 6, 0.12);
+  color: #d97706;
+  border-color: rgba(217, 119, 6, 0.3);
 }
 
 .pod-interview .stat-pod-icon-box {
-  background: rgba(139, 92, 246, 0.1);
+  background: rgba(139, 92, 246, 0.12);
   color: #8b5cf6;
-  border-color: rgba(139, 92, 246, 0.25);
+  border-color: rgba(139, 92, 246, 0.3);
 }
 
 .pod-selected .stat-pod-icon-box {
-  background: rgba(16, 185, 129, 0.15);
-  color: #10b981;
-  border-color: rgba(16, 185, 129, 0.35);
+  background: rgba(255, 107, 53, 0.15);
+  color: #ff6b35;
+  border-color: rgba(255, 107, 53, 0.35);
 }
 
 .pod-rejected .stat-pod-icon-box {
-  background: rgba(244, 63, 94, 0.1);
+  background: rgba(244, 63, 94, 0.12);
   color: #f43f5e;
-  border-color: rgba(244, 63, 94, 0.25);
+  border-color: rgba(244, 63, 94, 0.3);
 }
 
 .stat-pod-count {
@@ -393,9 +403,9 @@
   flex-wrap: wrap;
   gap: 1.25rem;
   padding: 1rem 1.5rem;
-  background: rgba(10, 14, 20, 0.65);
+  background: rgba(13, 15, 23, 0.7);
   backdrop-filter: blur(12px);
-  border: 1px dashed rgba(16, 185, 129, 0.3);
+  border: 1px dashed rgba(245, 158, 11, 0.3);
   border-radius: 8px;
 }
 
@@ -416,11 +426,11 @@
   font-family: 'JetBrains Mono', monospace;
   font-size: 1.25rem;
   font-weight: 800;
-  color: #10b981;
+  color: #f59e0b;
 }
 
-.telemetry-rate.gold {
-  color: #f59e0b;
+.telemetry-rate.orange {
+  color: #ff6b35;
 }
 
 .telemetry-bar-outer {
@@ -433,12 +443,12 @@
 
 .telemetry-bar-fill {
   height: 100%;
-  background: linear-gradient(90deg, #059669, #10b981);
+  background: linear-gradient(90deg, #d97706, #f59e0b);
   border-radius: 3px;
 }
 
-.telemetry-bar-fill.gold {
-  background: linear-gradient(90deg, #d97706, #f59e0b);
+.telemetry-bar-fill.orange {
+  background: linear-gradient(90deg, #ea580c, #ff6b35);
 }
 
 /* Main Split: Analytics Spectrum vs Recent Signal Stream */
@@ -451,15 +461,15 @@
 
 /* Tactical Panel Card */
 .cortexa-panel-card {
-  background: rgba(10, 14, 20, 0.75);
+  background: rgba(13, 15, 23, 0.78);
   backdrop-filter: blur(14px);
-  border: 1px solid rgba(16, 185, 129, 0.2);
+  border: 1px solid rgba(245, 158, 11, 0.2);
   border-radius: 12px;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   position: relative;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.55);
 }
 
 .cortexa-panel-header {
@@ -480,7 +490,7 @@
 .panel-tag {
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.72rem;
-  color: #10b981;
+  color: #f59e0b;
   letter-spacing: 0.08em;
 }
 
@@ -510,7 +520,7 @@
   left: 0.85rem;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.85rem;
-  color: #10b981;
+  color: #f59e0b;
   font-weight: 700;
   pointer-events: none;
 }
@@ -518,10 +528,10 @@
 .signal-search-input {
   width: 100%;
   padding: 0.65rem 1rem 0.65rem 2.2rem;
-  background: rgba(6, 8, 11, 0.8);
-  border: 1px solid rgba(16, 185, 129, 0.25);
+  background: rgba(8, 9, 13, 0.85);
+  border: 1px solid rgba(245, 158, 11, 0.25);
   border-radius: 6px;
-  color: #f1f5f9;
+  color: #f8fafc;
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.85rem;
   outline: none;
@@ -529,8 +539,8 @@
 }
 
 .signal-search-input:focus {
-  border-color: #10b981;
-  box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+  border-color: #f59e0b;
+  box-shadow: 0 0 15px rgba(245, 158, 11, 0.35);
 }
 
 .signal-filter-chips {
@@ -553,16 +563,16 @@
 }
 
 .filter-chip:hover {
-  background: rgba(16, 185, 129, 0.1);
-  color: #10b981;
-  border-color: rgba(16, 185, 129, 0.3);
+  background: rgba(245, 158, 11, 0.12);
+  color: #f59e0b;
+  border-color: rgba(245, 158, 11, 0.3);
 }
 
 .filter-chip.active {
-  background: rgba(16, 185, 129, 0.2);
-  color: #34d399;
-  border-color: #10b981;
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.25);
+  background: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+  border-color: #f59e0b;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);
 }
 
 /* Tactical Signal Stream List */
@@ -578,7 +588,7 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.9rem 1.1rem;
-  background: rgba(8, 12, 18, 0.8);
+  background: rgba(10, 12, 18, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.06);
   border-radius: 8px;
   text-decoration: none;
@@ -594,16 +604,16 @@
   top: 0;
   bottom: 0;
   width: 3px;
-  background: #10b981;
+  background: #f59e0b;
   opacity: 0;
   transition: opacity 0.2s ease;
 }
 
 .signal-item-card:hover {
-  border-color: rgba(16, 185, 129, 0.4);
-  background: rgba(13, 19, 28, 0.95);
+  border-color: rgba(245, 158, 11, 0.45);
+  background: rgba(18, 21, 32, 0.95);
   transform: translateX(4px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
 }
 
 .signal-item-card:hover::before {
@@ -620,9 +630,9 @@
   width: 40px;
   height: 40px;
   border-radius: 6px;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.2), rgba(245, 158, 11, 0.2));
-  border: 1px solid rgba(16, 185, 129, 0.35);
-  color: #34d399;
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.2), rgba(255, 107, 53, 0.2));
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -677,7 +687,7 @@
 }
 
 .signal-item-card:hover .signal-arrow {
-  color: #10b981;
+  color: #f59e0b;
   transform: translateX(4px);
 }
 
@@ -690,8 +700,8 @@
   text-align: center;
   padding: 3rem 1.5rem;
   gap: 0.85rem;
-  background: rgba(6, 8, 11, 0.5);
-  border: 1px dashed rgba(16, 185, 129, 0.2);
+  background: rgba(8, 9, 13, 0.6);
+  border: 1px dashed rgba(245, 158, 11, 0.25);
   border-radius: 8px;
 }
 
@@ -699,9 +709,9 @@
   width: 54px;
   height: 54px;
   border-radius: 50%;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.25);
-  color: #10b981;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #f59e0b;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -731,7 +741,7 @@
   .cortexa-header-actions {
     width: 100%;
   }
-  .btn-cortexa-primary, .btn-cortexa-gold {
+  .btn-cortexa-primary, .btn-cortexa-orange {
     width: 100%;
     justify-content: center;
   }

@@ -1,5 +1,6 @@
 import React from 'react';
-import { Briefcase, Heart, Github, Linkedin, ExternalLink } from 'lucide-react';
+import { Heart } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 
 const Footer = () => {
   return (
@@ -22,27 +23,11 @@ const Footer = () => {
         >
           {/* Brand & Mission */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.65rem', marginBottom: '0.9rem' }}>
-              <div
-                style={{
-                  width: '32px',
-                  height: '32px',
-                  borderRadius: 'var(--radius-md)',
-                  background: 'linear-gradient(135deg, var(--primary-600), var(--accent-cyan))',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  color: '#FFFFFF'
-                }}
-              >
-                <Briefcase size={17} />
-              </div>
-              <span style={{ fontFamily: 'var(--font-heading)', fontSize: '1.25rem', fontWeight: 800 }}>
-                Job<span style={{ color: 'var(--primary-600)' }}>Track</span>
-              </span>
+            <div style={{ marginBottom: '1rem' }}>
+              <BrandLogo size="md" badgeText="CAREER OS" showSubtitle={true} subtitleText="Job Application Management System" />
             </div>
             <p style={{ fontSize: '0.9rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-              A full-stack MERN application to organize, track, and master your career opportunities with status insights and performance metrics.
+              A full-stack MERN platform to organize, track, and master your career opportunities with real-time pipeline telemetry and offer metrics.
             </p>
           </div>
 

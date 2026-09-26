@@ -3,7 +3,7 @@ import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useTheme } from '../context/ThemeContext';
 import {
-  Briefcase,
+  Target,
   LayoutDashboard,
   FileSpreadsheet,
   PlusCircle,
@@ -14,6 +14,7 @@ import {
   Menu,
   X
 } from 'lucide-react';
+import BrandLogo from './BrandLogo';
 import '../styles/Navbar.css';
 
 const Navbar = () => {
@@ -34,13 +35,8 @@ const Navbar = () => {
     <header className="navbar-header">
       <div className="container navbar-container">
         {/* Logo */}
-        <Link to={isAuthenticated ? '/dashboard' : '/'} className="navbar-brand" id="nav-brand-logo">
-          <div className="brand-icon-wrapper">
-            <Briefcase size={20} className="brand-icon" />
-          </div>
-          <span className="brand-text">
-            Job<span className="brand-highlight">Track</span>
-          </span>
+        <Link to={isAuthenticated ? '/dashboard' : '/'} className="navbar-brand-link" id="nav-brand-logo">
+          <BrandLogo size="md" badgeText="OS" />
         </Link>
 
         {/* Desktop Navigation Links */}

@@ -20,7 +20,9 @@ import {
   RefreshCw,
   Sparkles
 } from 'lucide-react';
-import CortexaMonitorScene from '../components/dashboard/CortexaMonitorScene';
+import DashboardCareerBackground from '../components/dashboard/DashboardCareerBackground';
+import JobApplicationPipelineTracker from '../components/dashboard/JobApplicationPipelineTracker';
+import BrandLogo from '../components/BrandLogo';
 import StatChart from '../components/StatChart';
 import StatusBadge from '../components/StatusBadge';
 import LoadingSpinner from '../components/LoadingSpinner';
@@ -119,10 +121,10 @@ const DashboardPage = () => {
 
   return (
     <div className="cortexa-dashboard-wrapper">
-      {/* 3D WebGL Cortexa Monitor Background Canvas */}
-      <CortexaMonitorScene />
+      {/* Modern 3D Career Pipeline Perspective Background */}
+      <DashboardCareerBackground />
 
-      {/* Retro-Futuristic CRT Scanline & Phosphor Vignette Overlay */}
+      {/* Ambient Aurora Gradient Lighting (Zero CRT Scanlines) */}
       <div className="cortexa-crt-overlay" />
 
       {/* Main Dashboard Interactive Surface */}
@@ -132,15 +134,15 @@ const DashboardPage = () => {
           <div className="cortexa-status-nodes">
             <span className="status-node active">
               <span className="led-indicator" />
-              <span>SYS_TELEMETRY: ONLINE</span>
+              <span>PIPELINE_RADAR: ACTIVE</span>
             </span>
             <span className="status-node">
-              <span className="led-indicator gold" />
-              <span>CORTEXA PHOSPHOR: 144Hz</span>
+              <span className="led-indicator amethyst" />
+              <span>ATS_ENGINE: OPTIMIZED</span>
             </span>
             <span className="status-node">
               <Activity size={13} style={{ color: '#10b981' }} />
-              <span>STREAM: ACTIVE</span>
+              <span>REALTIME_SYNC: CONNECTED</span>
             </span>
           </div>
 
@@ -153,9 +155,9 @@ const DashboardPage = () => {
               }}
               title="Refresh Pipeline Telemetry"
               style={{
-                background: 'rgba(16, 185, 129, 0.1)',
-                border: '1px solid rgba(16, 185, 129, 0.3)',
-                color: '#34d399',
+                background: 'rgba(245, 158, 11, 0.1)',
+                border: '1px solid rgba(245, 158, 11, 0.3)',
+                color: '#fbbf24',
                 padding: '4px 8px',
                 borderRadius: '4px',
                 cursor: 'pointer',
@@ -178,16 +180,16 @@ const DashboardPage = () => {
           <div>
             <div className="cortexa-operator-callout">
               <Radio size={12} />
-              <span>OPERATOR: {user?.name?.toUpperCase() || 'CANDIDATE'}</span>
+              <span>CANDIDATE: {user?.name?.toUpperCase() || 'CAREER EXPLORER'}</span>
               <span style={{ color: '#64748b' }}>//</span>
-              <span style={{ color: '#f59e0b' }}>RADAR_ACTIVE</span>
+              <span style={{ color: '#10b981' }}>PIPELINE_ACTIVE</span>
             </div>
             <h1 className="cortexa-title">
-              <span className="glow-emerald">CAREER COMMAND</span>{' '}
+              <span className="glow-orange">CAREER COMMAND</span>{' '}
               <span className="glow-gold">CENTER</span>
             </h1>
             <p className="cortexa-subtitle">
-              Live career pipeline telemetry, interview signals, and application tracking matrix.
+              Live job application telemetry, interview milestone progression, and offer analytics.
             </p>
           </div>
 
@@ -200,7 +202,7 @@ const DashboardPage = () => {
               onClick={playClickSound}
             >
               <PlusCircle size={17} />
-              <span>DEPLOY APPLICATION</span>
+              <span>+ NEW APPLICATION</span>
             </Link>
           </div>
         </div>
@@ -209,10 +211,17 @@ const DashboardPage = () => {
 
         {loading ? (
           <div style={{ padding: '4rem 0', display: 'flex', justifyContent: 'center' }}>
-            <LoadingSpinner message="Scanning application telemetry channels..." size="large" />
+            <LoadingSpinner message="Scanning application pipeline channels..." size="large" />
           </div>
         ) : (
           <>
+            {/* Interactive 4-Stage Job Application Lifecycle Ribbon */}
+            <JobApplicationPipelineTracker
+              stats={stats}
+              activeFilter={activeFilter}
+              onSelectFilter={(f) => setActiveFilter(f)}
+            />
+
             {/* Tactical Telemetry Metric Pods (5 Grid) */}
             <div className="cortexa-stats-grid">
               {/* Pod 1: Total Pipeline */}
@@ -230,7 +239,7 @@ const DashboardPage = () => {
                   <path
                     d="M0,15 Q25,5 50,12 T100,6"
                     fill="none"
-                    stroke="#10b981"
+                    stroke="#f59e0b"
                     strokeWidth="2"
                     strokeDasharray="100"
                     strokeDashoffset="0"
@@ -283,19 +292,19 @@ const DashboardPage = () => {
               {/* Pod 4: Selected / Offers */}
               <div className="cortexa-stat-pod pod-selected" onMouseEnter={playHoverSound}>
                 <div className="stat-pod-top">
-                  <span className="stat-pod-tag" style={{ color: '#10b981' }}>// 04 SELECTED [OFFER]</span>
+                  <span className="stat-pod-tag" style={{ color: '#ff6b35' }}>// 04 SELECTED [OFFER]</span>
                   <div className="stat-pod-icon-box">
                     <CheckCircle size={18} />
                   </div>
                 </div>
-                <div className="stat-pod-count" style={{ color: '#34d399' }}>{stats.selected}</div>
+                <div className="stat-pod-count" style={{ color: '#ff8800' }}>{stats.selected}</div>
                 <div className="stat-pod-label">Offers & Passed</div>
                 {/* Mini SVG Sparkline */}
                 <svg className="stat-pod-sparkline" viewBox="0 0 100 20">
                   <path
                     d="M0,18 L30,14 L60,8 L100,2"
                     fill="none"
-                    stroke="#10b981"
+                    stroke="#ff6b35"
                     strokeWidth="2"
                   />
                 </svg>
@@ -326,7 +335,7 @@ const DashboardPage = () => {
             {/* Conversion Telemetry Strip */}
             <div className="cortexa-telemetry-strip">
               <div className="telemetry-metric">
-                <Activity size={16} style={{ color: '#10b981' }} />
+                <Activity size={16} style={{ color: '#f59e0b' }} />
                 <div>
                   <div className="telemetry-title">INTERVIEW CONVERSION RATE</div>
                   <div className="telemetry-rate">{interviewRate}%</div>
@@ -371,7 +380,7 @@ const DashboardPage = () => {
                     to="/applications"
                     id="dash-view-all-link"
                     className="view-all-link"
-                    style={{ color: '#34d399', fontFamily: 'JetBrains Mono, monospace', fontSize: '0.78rem' }}
+                    style={{ color: '#f59e0b', fontFamily: 'JetBrains Mono, monospace', fontSize: '0.78rem' }}
                     onMouseEnter={playHoverSound}
                     onClick={playClickSound}
                   >

@@ -1,0 +1,192 @@
+/* BrandLogo Styles */
+
+.brand-logo-container {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-decoration: none;
+  user-select: none;
+  transition: transform var(--transition-fast, 150ms ease);
+}
+
+.brand-logo-container.is-interactive:hover .brand-logo-mark {
+  transform: translateY(-1px) scale(1.04);
+  box-shadow: 0 8px 24px -4px rgba(245, 158, 11, 0.45);
+}
+
+.brand-logo-container.is-interactive:hover .logo-trajectory-path {
+  filter: drop-shadow(0 0 4px rgba(255, 255, 255, 0.8));
+}
+
+.brand-logo-container.is-interactive:hover .logo-arrowhead {
+  transform: translate(1px, -1px);
+}
+
+/* Sizing Variants */
+.brand-logo-container.size-sm .brand-logo-mark {
+  width: 30px;
+  height: 30px;
+}
+.brand-logo-container.size-sm .brand-name-main,
+.brand-logo-container.size-sm .brand-name-accent {
+  font-size: 1.15rem;
+}
+.brand-logo-container.size-sm .brand-badge-pill {
+  font-size: 0.65rem;
+  padding: 0.1rem 0.45rem;
+}
+
+.brand-logo-container.size-md .brand-logo-mark {
+  width: 38px;
+  height: 38px;
+}
+.brand-logo-container.size-md .brand-name-main,
+.brand-logo-container.size-md .brand-name-accent {
+  font-size: 1.35rem;
+}
+.brand-logo-container.size-md .brand-badge-pill {
+  font-size: 0.7rem;
+  padding: 0.15rem 0.55rem;
+}
+
+.brand-logo-container.size-lg .brand-logo-mark {
+  width: 50px;
+  height: 50px;
+}
+.brand-logo-container.size-lg .brand-name-main,
+.brand-logo-container.size-lg .brand-name-accent {
+  font-size: 1.85rem;
+}
+.brand-logo-container.size-lg .brand-badge-pill {
+  font-size: 0.78rem;
+  padding: 0.2rem 0.65rem;
+}
+
+/* Mark Container */
+.brand-logo-mark {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(245, 158, 11, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.brand-logo-svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.logo-bg-squircle {
+  transition: filter 0.25s ease;
+}
+
+.logo-arrowhead {
+  transition: transform 0.2s ease;
+}
+
+/* Beacon Animation */
+.logo-beacon-dot {
+  animation: logoBeaconPulse 2s infinite ease-in-out;
+}
+
+.logo-beacon-ring {
+  animation: logoBeaconExpand 2s infinite cubic-bezier(0, 0, 0.2, 1);
+  transform-origin: 34px 10px;
+}
+
+@keyframes logoBeaconPulse {
+  0%, 100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes logoBeaconExpand {
+  0% {
+    r: 3.5px;
+    opacity: 0.8;
+  }
+  70% {
+    r: 7.5px;
+    opacity: 0;
+  }
+  100% {
+    r: 7.5px;
+    opacity: 0;
+  }
+}
+
+/* Text Column */
+.brand-logo-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 1.1;
+}
+
+.brand-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.brand-name-main {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--text-primary, #0f172a);
+  transition: color 0.2s ease;
+}
+
+.brand-name-accent {
+  font-family: var(--font-heading, 'Plus Jakarta Sans', sans-serif);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #f59e0b 0%, #ff6b35 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.brand-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-radius: 9999px;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  color: #d97706;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+[data-theme='dark'] .brand-badge-pill {
+  background: rgba(245, 158, 11, 0.16);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+
+.badge-pulse-indicator {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 6px #10b981;
+}
+
+.brand-subtitle-label {
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--text-muted, #94a3b8);
+  margin-top: 0.18rem;
+  text-transform: uppercase;
+}

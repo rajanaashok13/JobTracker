@@ -3,7 +3,7 @@ import React from 'react';
 const StatsCard = ({ title, count = 0, icon: Icon, color = 'primary', subtext }) => {
   const colorThemes = {
     primary: {
-      gradient: 'linear-gradient(135deg, #059669, #10B981)',
+      gradient: 'linear-gradient(135deg, #D97706, #F59E0B)',
       bgLight: 'var(--primary-50)',
       textColor: 'var(--primary-700)',
       border: 'var(--primary-200)'
@@ -26,11 +26,17 @@ const StatsCard = ({ title, count = 0, icon: Icon, color = 'primary', subtext })
       textColor: '#D97706',
       border: 'rgba(217, 119, 6, 0.2)'
     },
+    orange: {
+      gradient: 'linear-gradient(135deg, #EA580C, #FF6B35)',
+      bgLight: 'rgba(255, 107, 53, 0.1)',
+      textColor: '#EA580C',
+      border: 'rgba(255, 107, 53, 0.25)'
+    },
     emerald: {
-      gradient: 'linear-gradient(135deg, #059669, #10B981)',
-      bgLight: 'rgba(5, 150, 105, 0.1)',
-      textColor: '#059669',
-      border: 'rgba(5, 150, 105, 0.2)'
+      gradient: 'linear-gradient(135deg, #EA580C, #FF6B35)',
+      bgLight: 'rgba(255, 107, 53, 0.1)',
+      textColor: '#EA580C',
+      border: 'rgba(255, 107, 53, 0.25)'
     },
     rose: {
       gradient: 'linear-gradient(135deg, #DC2626, #EF4444)',

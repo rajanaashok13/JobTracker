@@ -21,7 +21,7 @@ const StatChart = ({ stats = { applied: 0, interview: 0, selected: 0, rejected: 
     {
       label: 'Selected',
       count: stats.selected || 0,
-      color: '#10B981',
+      color: '#FF6B35',
       percentage: total > 0 ? Math.round(((stats.selected || 0) / total) * 100) : 0
     },
     {
@@ -55,9 +55,9 @@ const StatChart = ({ stats = { applied: 0, interview: 0, selected: 0, rejected: 
               borderRadius: '4px',
               border: 'none',
               cursor: 'pointer',
-              backgroundColor: activeTab === 'bar' ? 'rgba(16, 185, 129, 0.25)' : 'transparent',
-              color: activeTab === 'bar' ? '#34d399' : '#94a3b8',
-              boxShadow: activeTab === 'bar' ? '0 0 10px rgba(16, 185, 129, 0.3)' : 'none'
+              backgroundColor: activeTab === 'bar' ? 'rgba(245, 158, 11, 0.25)' : 'transparent',
+              color: activeTab === 'bar' ? '#FBBF24' : '#94a3b8',
+              boxShadow: activeTab === 'bar' ? '0 0 10px rgba(245, 158, 11, 0.35)' : 'none'
             }}
           >
             [BAR]
@@ -72,9 +72,9 @@ const StatChart = ({ stats = { applied: 0, interview: 0, selected: 0, rejected: 
               borderRadius: '4px',
               border: 'none',
               cursor: 'pointer',
-              backgroundColor: activeTab === 'donut' ? 'rgba(16, 185, 129, 0.25)' : 'transparent',
-              color: activeTab === 'donut' ? '#34d399' : '#94a3b8',
-              boxShadow: activeTab === 'donut' ? '0 0 10px rgba(16, 185, 129, 0.3)' : 'none'
+              backgroundColor: activeTab === 'donut' ? 'rgba(245, 158, 11, 0.25)' : 'transparent',
+              color: activeTab === 'donut' ? '#FBBF24' : '#94a3b8',
+              boxShadow: activeTab === 'donut' ? '0 0 10px rgba(245, 158, 11, 0.35)' : 'none'
             }}
           >
             [DONUT]

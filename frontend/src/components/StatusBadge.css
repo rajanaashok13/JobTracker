@@ -1,0 +1,124 @@
+/* StatusBadge Styles */
+
+.status-badge-root {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.42rem;
+  border-radius: 9999px;
+  font-family: var(--font-sans, system-ui, sans-serif);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  user-select: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  white-space: nowrap;
+}
+
+/* Sizing */
+.status-badge-root.size-sm {
+  padding: 0.2rem 0.55rem;
+  font-size: 0.72rem;
+}
+.status-badge-root.size-md {
+  padding: 0.28rem 0.75rem;
+  font-size: 0.8rem;
+}
+.status-badge-root.size-lg {
+  padding: 0.4rem 0.95rem;
+  font-size: 0.88rem;
+}
+
+/* Dot & Pulse */
+.status-badge-dot-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 7px;
+  height: 7px;
+}
+
+.status-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.status-badge-pulse {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.45;
+  animation: badgeBeaconPulse 2s infinite ease-in-out;
+}
+
+@keyframes badgeBeaconPulse {
+  0% { transform: scale(0.9); opacity: 0.7; }
+  50% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(0.9); opacity: 0; }
+}
+
+/* 1. Applied - Amber Gold */
+.status-badge-applied {
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  box-shadow: 0 0 12px -3px rgba(245, 158, 11, 0.25);
+}
+
+[data-theme='light'] .status-badge-applied {
+  background: #fef3c7;
+  color: #b45309;
+  border-color: #fde68a;
+  box-shadow: none;
+}
+
+/* 2. Interview - Royal Amethyst / Violet */
+.status-badge-interview {
+  background: rgba(139, 92, 246, 0.14);
+  color: #c4b5fd;
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  box-shadow: 0 0 12px -3px rgba(139, 92, 246, 0.25);
+}
+
+[data-theme='light'] .status-badge-interview {
+  background: #f3e8ff;
+  color: #7e22ce;
+  border-color: #e9d5ff;
+  box-shadow: none;
+}
+
+/* 3. Selected - Cyber Emerald */
+.status-badge-selected {
+  background: rgba(16, 185, 129, 0.14);
+  color: #6ee7b7;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  box-shadow: 0 0 14px -2px rgba(16, 185, 129, 0.3);
+}
+
+[data-theme='light'] .status-badge-selected {
+  background: #ecfdf5;
+  color: #047857;
+  border-color: #a7f3d0;
+  box-shadow: none;
+}
+
+/* 4. Rejected - Muted Rose */
+.status-badge-rejected {
+  background: rgba(244, 63, 94, 0.12);
+  color: #fda4af;
+  border: 1px solid rgba(244, 63, 94, 0.3);
+}
+
+[data-theme='light'] .status-badge-rejected {
+  background: #fff1f2;
+  color: #be123c;
+  border-color: #fecdd3;
+  box-shadow: none;
+}
+
+.status-badge-root:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}

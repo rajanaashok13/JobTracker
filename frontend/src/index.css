@@ -3,28 +3,28 @@
    ========================================================================== */
 
 :root {
-  /* Color Palette - Neo-Luxury Emerald & Solar Gold (Non-Blue) */
-  --primary-50: #ECFDF5;
-  --primary-100: #D1FAE5;
-  --primary-200: #A7F3D0;
-  --primary-300: #6EE7B7;
-  --primary-400: #34D399;
-  --primary-500: #10B981;
-  --primary-600: #059669;
-  --primary-700: #047857;
-  --primary-800: #065F46;
-  --primary-900: #064E3B;
+  /* Color Palette - Solar Gold, Blaze Orange & Royal Amethyst (ZERO BLUE, ZERO GREEN) */
+  --primary-50: #FFFBEB;
+  --primary-100: #FEF3C7;
+  --primary-200: #FDE68A;
+  --primary-300: #FCD34D;
+  --primary-400: #FBBF24;
+  --primary-500: #F59E0B;
+  --primary-600: #D97706;
+  --primary-700: #B45309;
+  --primary-800: #92400E;
+  --primary-900: #78350F;
 
   --accent-gold: #F59E0B;
   --accent-gold-light: #FEF3C7;
   --accent-purple: #8B5CF6;
   --accent-rose: #F43F5E;
-  --accent-emerald: #10B981;
+  --accent-orange: #FF6B35;
   --accent-amber: #F59E0B;
-  --accent-cyan: #10B981; /* Aliased to emerald to remove blue globally */
-  --accent-cyan-light: #D1FAE5;
+  --accent-cyan: #FF6B35;
+  --accent-cyan-light: #FFEDD5;
 
-  /* Status Colors (Non-Blue) */
+  /* Status Colors (ZERO BLUE, ZERO GREEN) */
   --status-applied-bg: #FEF3C7;
   --status-applied-text: #B45309;
   --status-applied-border: #FDE68A;
@@ -33,9 +33,9 @@
   --status-interview-text: #7E22CE;
   --status-interview-border: #E9D5FF;
 
-  --status-selected-bg: #ECFDF5;
-  --status-selected-text: #047857;
-  --status-selected-border: #A7F3D0;
+  --status-selected-bg: #FFF7ED;
+  --status-selected-text: #C2410C;
+  --status-selected-border: #FED7AA;
 
   --status-rejected-bg: #FEF2F2;
   --status-rejected-text: #E11D48;
@@ -62,7 +62,7 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.08), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.09), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
-  --shadow-glow: 0 0 25px -5px rgba(16, 185, 129, 0.3);
+  --shadow-glow: 0 0 25px -5px rgba(245, 158, 11, 0.35);
 
   /* Fonts */
   --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
@@ -80,7 +80,7 @@
   --transition-smooth: 350ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Dark Theme (Non-Blue Obsidian & Emerald) */
+/* Dark Theme (ZERO BLUE, ZERO GREEN - Void Obsidian & Solar Gold) */
 [data-theme='dark'] {
   --bg-primary: #08090D;
   --bg-secondary: #11131A;
@@ -102,7 +102,7 @@
   --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
   --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.6);
-  --shadow-glow: 0 0 30px -5px rgba(16, 185, 129, 0.35);
+  --shadow-glow: 0 0 30px -5px rgba(245, 158, 11, 0.4);
 
   --status-applied-bg: rgba(245, 158, 11, 0.2);
   --status-applied-text: #FDE68A;
@@ -112,9 +112,9 @@
   --status-interview-text: #DDD6FE;
   --status-interview-border: rgba(139, 92, 246, 0.4);
 
-  --status-selected-bg: rgba(6, 78, 59, 0.3);
-  --status-selected-text: #6EE7B7;
-  --status-selected-border: rgba(16, 185, 129, 0.4);
+  --status-selected-bg: rgba(234, 88, 12, 0.25);
+  --status-selected-text: #FDBA74;
+  --status-selected-border: rgba(251, 146, 60, 0.4);
 
   --status-rejected-bg: rgba(127, 29, 29, 0.3);
   --status-rejected-text: #FCA5A5;
@@ -247,7 +247,7 @@ img, svg {
 .btn-primary {
   background: linear-gradient(135deg, var(--primary-600), var(--primary-700));
   color: #FFFFFF;
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.35);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35);
 }
 
 .btn-primary:hover {
@@ -333,7 +333,7 @@ img, svg {
 }
 
 .glass-card:hover {
-  border-color: rgba(16, 185, 129, 0.3);
+  border-color: rgba(245, 158, 11, 0.3);
 }
 
 /* Inputs & Forms */
@@ -364,7 +364,7 @@ img, svg {
 
 .form-input:focus, .form-select:focus, .form-textarea:focus {
   border-color: var(--primary-500);
-  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.15);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.2);
 }
 
 .form-textarea {
@@ -407,9 +407,9 @@ img, svg {
 
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 15px rgba(16, 185, 129, 0.2);
+    box-shadow: 0 0 15px rgba(245, 158, 11, 0.25);
   }
   50% {
-    box-shadow: 0 0 30px rgba(16, 185, 129, 0.4);
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.5);
   }
 }
