@@ -20,14 +20,12 @@ import {
   RefreshCw,
   Sparkles
 } from 'lucide-react';
-import DashboardCareerBackground from '../components/dashboard/DashboardCareerBackground';
 import JobApplicationPipelineTracker from '../components/dashboard/JobApplicationPipelineTracker';
 import BrandLogo from '../components/BrandLogo';
 import StatChart from '../components/StatChart';
 import StatusBadge from '../components/StatusBadge';
 import LoadingSpinner from '../components/LoadingSpinner';
 import AlertMessage from '../components/AlertMessage';
-import { playHoverSound, playClickSound } from '../components/landing/SoundEffects';
 import '../styles/CortexaDashboard.css';
 import '../styles/Dashboard.css';
 
@@ -121,11 +119,11 @@ const DashboardPage = () => {
 
   return (
     <div className="cortexa-dashboard-wrapper">
-      {/* Modern 3D Career Pipeline Perspective Background */}
-      <DashboardCareerBackground />
-
-      {/* Ambient Aurora Gradient Lighting (Zero CRT Scanlines) */}
-      <div className="cortexa-crt-overlay" />
+      {/* Luxury Static Executive Background (Zero Moving Canvas / Zero Bubbles) */}
+      <div className="executive-static-bg" aria-hidden="true">
+        <div className="executive-ambient-glow" />
+        <div className="executive-grid-pattern" />
+      </div>
 
       {/* Main Dashboard Interactive Surface */}
       <div className="cortexa-dashboard-content">
@@ -134,15 +132,15 @@ const DashboardPage = () => {
           <div className="cortexa-status-nodes">
             <span className="status-node active">
               <span className="led-indicator" />
-              <span>PIPELINE_RADAR: ACTIVE</span>
+              <span>CAREER PIPELINE: ACTIVE</span>
             </span>
             <span className="status-node">
               <span className="led-indicator amethyst" />
-              <span>ATS_ENGINE: OPTIMIZED</span>
+              <span>INTERVIEW TRACKER: LIVE</span>
             </span>
             <span className="status-node">
               <Activity size={13} style={{ color: '#10b981' }} />
-              <span>REALTIME_SYNC: CONNECTED</span>
+              <span>CLOUD SYNC: CONNECTED</span>
             </span>
           </div>
 
@@ -150,7 +148,6 @@ const DashboardPage = () => {
             <span className="cortexa-clock">{currentTime || '00:00:00 UTC'}</span>
             <button
               onClick={() => {
-                playClickSound();
                 fetchDashboardData();
               }}
               title="Refresh Pipeline Telemetry"
@@ -167,7 +164,6 @@ const DashboardPage = () => {
                 fontFamily: 'JetBrains Mono, monospace',
                 fontSize: '0.72rem'
               }}
-              onMouseEnter={playHoverSound}
             >
               <RefreshCw size={12} />
               <span>SYNC</span>
@@ -198,8 +194,6 @@ const DashboardPage = () => {
               to="/add-job"
               id="dash-add-job-btn"
               className="btn-cortexa-primary"
-              onMouseEnter={playHoverSound}
-              onClick={playClickSound}
             >
               <PlusCircle size={17} />
               <span>+ NEW APPLICATION</span>

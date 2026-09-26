@@ -251,162 +251,147 @@
   color: #ffffff;
 }
 
-/* Tactical Telemetry Metric Pods (5 Grid) */
+/* Executive Telemetry Metric Pods (5 Grid) */
 .cortexa-stats-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.25rem;
 }
 
 .cortexa-stat-pod {
   position: relative;
-  padding: 1.4rem;
-  background: rgba(13, 15, 23, 0.75);
-  backdrop-filter: blur(14px);
+  padding: 1.4rem 1.5rem;
+  background: rgba(16, 22, 34, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
+  border-radius: 14px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   overflow: hidden;
-  transition: all 0.25s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.cortexa-stat-pod::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 14px;
-  height: 14px;
-  border-top: 2px solid #f59e0b;
-  border-left: 2px solid #f59e0b;
-}
-
-.cortexa-stat-pod::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 14px;
-  height: 14px;
-  border-bottom: 2px solid #f59e0b;
-  border-right: 2px solid #f59e0b;
-}
-
-.cortexa-stat-pod.pod-applied::before,
-.cortexa-stat-pod.pod-applied::after {
-  border-color: #d97706;
-}
-
-.cortexa-stat-pod.pod-interview::before,
-.cortexa-stat-pod.pod-interview::after {
-  border-color: #8b5cf6;
-}
-
-.cortexa-stat-pod.pod-selected::before,
-.cortexa-stat-pod.pod-selected::after {
-  border-color: #ff6b35;
-}
-
-.cortexa-stat-pod.pod-rejected::before,
-.cortexa-stat-pod.pod-rejected::after {
-  border-color: #f43f5e;
+[data-theme='light'] .cortexa-stat-pod {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 4px 15px -2px rgba(0, 0, 0, 0.04);
 }
 
 .cortexa-stat-pod:hover {
-  transform: translateY(-3px);
-  background: rgba(18, 21, 32, 0.88);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55);
-  border-color: rgba(245, 158, 11, 0.3);
+  transform: translateY(-2px);
+  border-color: rgba(245, 158, 11, 0.35);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme='light'] .cortexa-stat-pod:hover {
+  border-color: #cbd5e1;
+  box-shadow: 0 8px 25px -4px rgba(0, 0, 0, 0.08);
 }
 
 .stat-pod-top {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   margin-bottom: 0.85rem;
 }
 
 .stat-pod-tag {
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-heading, sans-serif);
   font-size: 0.72rem;
-  color: #f59e0b;
-  letter-spacing: 0.08em;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
 }
 
 .stat-pod-icon-box {
-  width: 38px;
-  height: 38px;
-  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(245, 158, 11, 0.12);
   color: #f59e0b;
-  border: 1px solid rgba(245, 158, 11, 0.3);
+  border: 1px solid rgba(245, 158, 11, 0.25);
 }
 
 .pod-applied .stat-pod-icon-box {
-  background: rgba(217, 119, 6, 0.12);
-  color: #d97706;
-  border-color: rgba(217, 119, 6, 0.3);
+  background: rgba(245, 158, 11, 0.12);
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.3);
 }
 
 .pod-interview .stat-pod-icon-box {
   background: rgba(139, 92, 246, 0.12);
-  color: #8b5cf6;
+  color: #c4b5fd;
   border-color: rgba(139, 92, 246, 0.3);
 }
 
 .pod-selected .stat-pod-icon-box {
-  background: rgba(255, 107, 53, 0.15);
-  color: #ff6b35;
-  border-color: rgba(255, 107, 53, 0.35);
+  background: rgba(16, 185, 129, 0.12);
+  color: #6ee7b7;
+  border-color: rgba(16, 185, 129, 0.3);
 }
 
 .pod-rejected .stat-pod-icon-box {
   background: rgba(244, 63, 94, 0.12);
-  color: #f43f5e;
-  border-color: rgba(244, 63, 94, 0.3);
+  color: #fda4af;
+  border-color: rgba(244, 63, 94, 0.25);
 }
 
 .stat-pod-count {
   font-size: 2.2rem;
   font-weight: 800;
-  font-family: 'JetBrains Mono', monospace;
+  font-family: var(--font-heading, sans-serif);
   line-height: 1;
-  color: #ffffff;
-  margin-bottom: 0.3rem;
+  color: #f8fafc;
+  margin-bottom: 0.35rem;
+}
+
+[data-theme='light'] .stat-pod-count {
+  color: #0f172a;
 }
 
 .stat-pod-label {
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 500;
   color: #94a3b8;
-  margin-bottom: 0.65rem;
+  margin-bottom: 0.5rem;
 }
 
 /* Mini Waveform Sparkline */
 .stat-pod-sparkline {
   width: 100%;
-  height: 24px;
-  margin-top: 0.5rem;
+  height: 22px;
+  margin-top: 0.35rem;
   display: block;
+  opacity: 0.85;
 }
 
-/* Conversion Telemetry Strip */
+/* Conversion Telemetry Strip - Clean Executive Ribbon */
 .cortexa-telemetry-strip {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1.25rem;
-  padding: 1rem 1.5rem;
-  background: rgba(13, 15, 23, 0.7);
-  backdrop-filter: blur(12px);
-  border: 1px dashed rgba(245, 158, 11, 0.3);
-  border-radius: 8px;
+  padding: 1.1rem 1.5rem;
+  background: rgba(16, 22, 34, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme='light'] .cortexa-telemetry-strip {
+  background: #ffffff;
+  border-color: #e2e8f0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
 }
 
 .telemetry-metric {
@@ -416,10 +401,11 @@
 }
 
 .telemetry-title {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   color: #94a3b8;
-  letter-spacing: 0.05em;
+  text-transform: uppercase;
 }
 
 .telemetry-rate {

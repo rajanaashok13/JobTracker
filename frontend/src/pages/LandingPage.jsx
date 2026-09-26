@@ -15,18 +15,12 @@ import {
   Compass,
   Briefcase,
   Flame,
-  Award,
-  ChevronRight
+  Award
 } from 'lucide-react';
-import CareerPipelineBackground from '../components/landing/CareerPipelineBackground';
-import CareerMilestoneChips from '../components/landing/CareerMilestoneChips';
-import ChapterNav from '../components/landing/ChapterNav';
 import PipelineSimulator from '../components/landing/PipelineSimulator';
 import CompanyTicker from '../components/landing/CompanyTicker';
 import InteractiveSearchDemo from '../components/landing/InteractiveSearchDemo';
-import AudioToggle from '../components/landing/AudioToggle';
 import MagneticCard from '../components/landing/MagneticCard';
-import { playHoverSound, playOfferCelebration } from '../components/landing/SoundEffects';
 import '../styles/MugenLanding.css';
 
 const LandingPage = () => {
@@ -34,48 +28,32 @@ const LandingPage = () => {
 
   return (
     <div className="mugen-landing-page">
-      {/* 3D Career Pipeline & Application Network WebGL Canvas */}
-      <CareerPipelineBackground />
-
-      {/* Atmospheric Ambient Aurora & Tech Matrix Grid (Zero Floating Bubbles) */}
-      <div className="career-bg-atmosphere" aria-hidden="true">
-        <div className="career-aurora-glow-1" />
-        <div className="career-aurora-glow-2" />
-        <div className="career-aurora-glow-3" />
-        <div className="career-grid-matrix-overlay" />
-      </div>
-
-      {/* Floating Well-Labeled Job Application Milestone Chips */}
-      <CareerMilestoneChips />
-
-      {/* Signature Mugen Vertical Milestone Chapter Rail */}
-      <ChapterNav />
-
-      {/* Floating Audio Micro-interaction Toggle */}
-      <div className="audio-toggle-wrapper">
-        <AudioToggle />
+      {/* Luxury Static Executive Background (Zero Moving Bubbles / Zero Moving Particles) */}
+      <div className="executive-static-bg" aria-hidden="true">
+        <div className="executive-ambient-glow" />
+        <div className="executive-grid-pattern" />
       </div>
 
       {/* ====================================================================
-          CHAPTER 01 // RADAR (HERO SECTION)
+          HERO SECTION // EXECUTIVE JOB APPLICATION SUITE
           ==================================================================== */}
       <section className="mugen-hero-section" id="hero-chapter">
         <div className="container">
           <div className="hero-matrix-grid">
             {/* Monumental Left Column */}
             <div className="hero-monument-content">
-              <div className="cyber-status-badge">
-                <span className="radar-blip" />
-                <span>PROTOCOL // CAREER_MATRIX_V2.5</span>
+              <div className="executive-pill-badge">
+                <Briefcase size={14} className="badge-icon-gold" />
+                <span>EXECUTIVE CAREER & APPLICATION MANAGEMENT</span>
               </div>
 
               <h1 className="monumental-title">
-                <span className="monumental-line-1">ORCHESTRATE</span>
-                <span className="monumental-line-2">YOUR CAREER</span>
+                <span className="monumental-line-1">MASTER YOUR</span>
+                <span className="monumental-line-2">JOB SEARCH</span>
               </h1>
 
               <p className="monumental-subtitle">
-                Say goodbye to fragmented spreadsheets. <strong>JobTrack</strong> accelerates your hiring journey from <strong>Applied</strong> to <strong>Interview</strong>, <strong>Selection</strong>, and <strong>Offer</strong> with real-time pipeline telemetry and sub-second metrics.
+                Say goodbye to fragmented spreadsheets. <strong>JobTrack</strong> organizes your entire hiring journey from <strong>Applied</strong> to <strong>Interview</strong>, <strong>Selection</strong>, and <strong>Offer</strong> with real-time pipeline clarity and salary negotiation insights.
               </p>
 
               {/* Action Buttons */}
@@ -85,9 +63,8 @@ const LandingPage = () => {
                     to="/dashboard"
                     className="btn-cyber-primary"
                     id="hero-dashboard-btn"
-                    onMouseEnter={playHoverSound}
                   >
-                    <span>Enter Mission Control</span>
+                    <span>Go to My Dashboard</span>
                     <ArrowRight size={18} />
                   </Link>
                 ) : (
@@ -96,7 +73,6 @@ const LandingPage = () => {
                       to="/register"
                       className="btn-cyber-primary"
                       id="hero-get-started-btn"
-                      onMouseEnter={playHoverSound}
                     >
                       <span>Start Tracking Free</span>
                       <ArrowRight size={18} />
@@ -105,7 +81,6 @@ const LandingPage = () => {
                       to="/login"
                       className="btn-cyber-secondary"
                       id="hero-signin-btn"
-                      onMouseEnter={playHoverSound}
                     >
                       <span>Sign In</span>
                     </Link>
@@ -122,17 +97,17 @@ const LandingPage = () => {
                 <div className="telemetry-divider" />
                 <div className="telemetry-item">
                   <span className="telemetry-num">4 STAGES</span>
-                  <span className="telemetry-label">Zero-Friction Matrix</span>
+                  <span className="telemetry-label">Application Pipeline</span>
                 </div>
                 <div className="telemetry-divider" />
                 <div className="telemetry-item">
-                  <span className="telemetry-num">&lt; 1.0s</span>
-                  <span className="telemetry-label">Real-Time Sync</span>
+                  <span className="telemetry-num">REAL-TIME</span>
+                  <span className="telemetry-label">Cloud Sync</span>
                 </div>
               </div>
             </div>
 
-            {/* Interactive 3D Pipeline Simulator Right Column */}
+            {/* Interactive Pipeline Simulator Right Column */}
             <div className="hero-monument-visual">
               <PipelineSimulator />
             </div>
