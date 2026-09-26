@@ -41,43 +41,43 @@ const StatChart = ({ stats = { applied: 0, interview: 0, selected: 0, rejected: 
     <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.25rem' }}>
         <div>
-          <h3 style={{ fontSize: '1.15rem', fontWeight: 700, margin: 0, color: '#FFFFFF' }}>Application Analytics</h3>
-          <p style={{ fontSize: '0.85rem', color: '#94a3b8', margin: '0.2rem 0 0 0' }}>Status distribution breakdown</p>
+          <h3 style={{ fontSize: '1.15rem', fontWeight: 700, margin: 0, color: 'var(--text-primary)' }}>Application Analytics</h3>
+          <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', margin: '0.2rem 0 0 0' }}>Status distribution breakdown</p>
         </div>
-        <div style={{ display: 'flex', gap: '0.25rem', backgroundColor: 'rgba(255, 255, 255, 0.05)', padding: '3px', borderRadius: '6px', border: '1px solid rgba(255, 255, 255, 0.08)' }}>
+        <div style={{ display: 'flex', gap: '0.25rem', backgroundColor: 'var(--bg-tertiary)', padding: '3px', borderRadius: 'var(--radius-md)', border: '1px solid var(--border-color)' }}>
           <button
             onClick={() => setActiveTab('bar')}
             style={{
               padding: '0.35rem 0.75rem',
               fontSize: '0.75rem',
-              fontWeight: 700,
-              fontFamily: 'JetBrains Mono, monospace',
-              borderRadius: '4px',
+              fontWeight: 600,
+              borderRadius: 'var(--radius-sm)',
               border: 'none',
               cursor: 'pointer',
-              backgroundColor: activeTab === 'bar' ? 'rgba(245, 158, 11, 0.25)' : 'transparent',
-              color: activeTab === 'bar' ? '#FBBF24' : '#94a3b8',
-              boxShadow: activeTab === 'bar' ? '0 0 10px rgba(245, 158, 11, 0.35)' : 'none'
+              backgroundColor: activeTab === 'bar' ? 'var(--bg-secondary)' : 'transparent',
+              color: activeTab === 'bar' ? 'var(--primary-600)' : 'var(--text-muted)',
+              boxShadow: activeTab === 'bar' ? 'var(--shadow-sm)' : 'none',
+              transition: 'all var(--transition-fast)'
             }}
           >
-            [BAR]
+            Bar
           </button>
           <button
             onClick={() => setActiveTab('donut')}
             style={{
               padding: '0.35rem 0.75rem',
               fontSize: '0.75rem',
-              fontWeight: 700,
-              fontFamily: 'JetBrains Mono, monospace',
-              borderRadius: '4px',
+              fontWeight: 600,
+              borderRadius: 'var(--radius-sm)',
               border: 'none',
               cursor: 'pointer',
-              backgroundColor: activeTab === 'donut' ? 'rgba(245, 158, 11, 0.25)' : 'transparent',
-              color: activeTab === 'donut' ? '#FBBF24' : '#94a3b8',
-              boxShadow: activeTab === 'donut' ? '0 0 10px rgba(245, 158, 11, 0.35)' : 'none'
+              backgroundColor: activeTab === 'donut' ? 'var(--bg-secondary)' : 'transparent',
+              color: activeTab === 'donut' ? 'var(--primary-600)' : 'var(--text-muted)',
+              boxShadow: activeTab === 'donut' ? 'var(--shadow-sm)' : 'none',
+              transition: 'all var(--transition-fast)'
             }}
           >
-            [DONUT]
+            Donut
           </button>
         </div>
       </div>

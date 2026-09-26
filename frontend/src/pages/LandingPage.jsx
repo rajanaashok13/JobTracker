@@ -10,58 +10,52 @@ import {
   Layers,
   BarChart3,
   CheckCircle2,
-  Terminal,
-  Zap,
-  Compass,
   Briefcase,
-  Flame,
+  CalendarCheck,
+  Send,
   Award
 } from 'lucide-react';
-import PipelineSimulator from '../components/landing/PipelineSimulator';
 import CompanyTicker from '../components/landing/CompanyTicker';
 import InteractiveSearchDemo from '../components/landing/InteractiveSearchDemo';
-import MagneticCard from '../components/landing/MagneticCard';
-import '../styles/MugenLanding.css';
+import '../styles/Landing.css';
 
 const LandingPage = () => {
   const { isAuthenticated } = useAuth();
 
   return (
-    <div className="mugen-landing-page">
-      {/* Luxury Static Executive Background (Zero Moving Bubbles / Zero Moving Particles) */}
+    <div className="landing-page">
+      {/* Luxury Static Executive Background */}
       <div className="executive-static-bg" aria-hidden="true">
         <div className="executive-ambient-glow" />
         <div className="executive-grid-pattern" />
       </div>
 
       {/* ====================================================================
-          HERO SECTION // EXECUTIVE JOB APPLICATION SUITE
+          HERO SECTION
           ==================================================================== */}
-      <section className="mugen-hero-section" id="hero-chapter">
+      <section className="hero-section" id="hero-section">
         <div className="container">
-          <div className="hero-matrix-grid">
-            {/* Monumental Left Column */}
-            <div className="hero-monument-content">
-              <div className="executive-pill-badge">
-                <Briefcase size={14} className="badge-icon-gold" />
-                <span>EXECUTIVE CAREER & APPLICATION MANAGEMENT</span>
+          <div className="hero-container">
+            {/* Left Content Column */}
+            <div className="hero-content">
+              <div className="hero-badge">
+                <Sparkles size={14} />
+                <span>The Modern Job Application Tracker</span>
               </div>
 
-              <h1 className="monumental-title">
-                <span className="monumental-line-1">MASTER YOUR</span>
-                <span className="monumental-line-2">JOB SEARCH</span>
+              <h1 className="hero-title">
+                Keep Your Job Search <span className="gradient-text">Organized</span> & Land Your Next Role
               </h1>
 
-              <p className="monumental-subtitle">
-                Say goodbye to fragmented spreadsheets. <strong>JobTrack</strong> organizes your entire hiring journey from <strong>Applied</strong> to <strong>Interview</strong>, <strong>Selection</strong>, and <strong>Offer</strong> with real-time pipeline clarity and salary negotiation insights.
+              <p className="hero-subtitle">
+                Say goodbye to scattered spreadsheets and forgotten follow-ups. <strong>JobTrack</strong> gives you a clean, visual pipeline to track every job application, schedule interview rounds, compare offers, and accelerate your career.
               </p>
 
-              {/* Action Buttons */}
-              <div className="hero-cta-matrix">
+              <div className="hero-cta-group">
                 {isAuthenticated ? (
                   <Link
                     to="/dashboard"
-                    className="btn-cyber-primary"
+                    className="btn btn-primary btn-lg"
                     id="hero-dashboard-btn"
                   >
                     <span>Go to My Dashboard</span>
@@ -71,7 +65,7 @@ const LandingPage = () => {
                   <>
                     <Link
                       to="/register"
-                      className="btn-cyber-primary"
+                      className="btn btn-primary btn-lg"
                       id="hero-get-started-btn"
                     >
                       <span>Start Tracking Free</span>
@@ -79,7 +73,7 @@ const LandingPage = () => {
                     </Link>
                     <Link
                       to="/login"
-                      className="btn-cyber-secondary"
+                      className="btn btn-secondary btn-lg"
                       id="hero-signin-btn"
                     >
                       <span>Sign In</span>
@@ -88,240 +82,235 @@ const LandingPage = () => {
                 )}
               </div>
 
-              {/* Telemetry Micro Stats */}
-              <div className="hero-telemetry-row">
-                <div className="telemetry-item">
-                  <span className="telemetry-num">100%</span>
-                  <span className="telemetry-label">Free & Private</span>
+              <div className="hero-stats-row">
+                <div className="hero-stat-item">
+                  <span className="hero-stat-num">100%</span>
+                  <span className="hero-stat-label">Free & Private</span>
                 </div>
-                <div className="telemetry-divider" />
-                <div className="telemetry-item">
-                  <span className="telemetry-num">4 STAGES</span>
-                  <span className="telemetry-label">Application Pipeline</span>
+                <div className="hero-stat-divider" />
+                <div className="hero-stat-item">
+                  <span className="hero-stat-num">4 STAGES</span>
+                  <span className="hero-stat-label">Visual Pipeline</span>
                 </div>
-                <div className="telemetry-divider" />
-                <div className="telemetry-item">
-                  <span className="telemetry-num">REAL-TIME</span>
-                  <span className="telemetry-label">Cloud Sync</span>
+                <div className="hero-stat-divider" />
+                <div className="hero-stat-item">
+                  <span className="hero-stat-num">INSTANT</span>
+                  <span className="hero-stat-label">Search & Filters</span>
                 </div>
               </div>
             </div>
 
-            {/* Interactive Pipeline Simulator Right Column */}
-            <div className="hero-monument-visual">
-              <PipelineSimulator />
+            {/* Right Showcase Card Column */}
+            <div className="hero-visual">
+              <div className="showcase-card glass-card">
+                <div className="showcase-header">
+                  <div className="showcase-dots">
+                    <span className="dot dot-red" />
+                    <span className="dot dot-yellow" />
+                    <span className="dot dot-green" />
+                  </div>
+                  <span className="showcase-title">JobTrack Pipeline Preview</span>
+                  <span className="live-pill">Live Tracker</span>
+                </div>
+
+                <div className="showcase-body">
+                  {/* Job 1: Stripe */}
+                  <div className="mock-job-card">
+                    <div className="mock-job-left">
+                      <div className="mock-company-avatar stripe-avatar">S</div>
+                      <div>
+                        <div className="mock-job-title">Staff Backend Engineer</div>
+                        <div className="mock-job-sub">Stripe • Remote • $190k - $220k</div>
+                      </div>
+                    </div>
+                    <span className="mock-badge selected-badge">Offer Received</span>
+                  </div>
+
+                  {/* Job 2: Google */}
+                  <div className="mock-job-card">
+                    <div className="mock-job-left">
+                      <div className="mock-company-avatar google-avatar">G</div>
+                      <div>
+                        <div className="mock-job-title">Senior Frontend Engineer</div>
+                        <div className="mock-job-sub">Google • Mountain View • Hybrid</div>
+                      </div>
+                    </div>
+                    <span className="mock-badge interview-badge">Interview Round 2</span>
+                  </div>
+
+                  {/* Job 3: Microsoft */}
+                  <div className="mock-job-card">
+                    <div className="mock-job-left">
+                      <div className="mock-company-avatar microsoft-avatar">M</div>
+                      <div>
+                        <div className="mock-job-title">Cloud Systems Architect</div>
+                        <div className="mock-job-sub">Microsoft • Seattle, WA • Onsite</div>
+                      </div>
+                    </div>
+                    <span className="mock-badge applied-badge">Applied (Under Review)</span>
+                  </div>
+
+                  {/* Conversion Preview */}
+                  <div className="showcase-chart-preview">
+                    <div className="chart-preview-label">
+                      <span>Interview Conversion Rate</span>
+                      <span className="chart-preview-pct">68%</span>
+                    </div>
+                    <div className="chart-preview-bar">
+                      <div className="chart-preview-fill" style={{ width: '68%' }} />
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Kinetic Infinite Company Radar Marquee */}
+      {/* Target Companies Strip */}
       <CompanyTicker />
 
       {/* ====================================================================
-          CHAPTER 02 // PIPELINE MATRIX (THE 4-STAGE KANBAN CORE)
+          FEATURES SECTION
           ==================================================================== */}
-      <section className="mugen-section" id="pipeline-chapter">
+      <section className="features-section" id="features">
         <div className="container">
-          <div className="section-monument-header">
-            <span className="section-code-pill">
-              <Terminal size={14} />
-              <span>CHAPTER 02 // PIPELINE ACCELERATOR</span>
-            </span>
-            <h2 className="section-monument-heading">
-              A 4-STAGE ARCHITECTURE DESIGNED TO LAND OFFERS
-            </h2>
-            <p className="section-monument-desc">
-              Every job opportunity flows through a high-precision pipeline with dedicated notes, follow-up timelines, and 1-click status transitions.
+          <div className="section-header">
+            <span className="section-eyebrow">Everything You Need</span>
+            <h2 className="section-heading">Designed for Focused Job Seekers</h2>
+            <p className="section-subtext">
+              Track applications effortlessly, keep interview rounds organized, and compare total compensation packages without messy spreadsheets.
             </p>
           </div>
 
-          <div className="telemetry-bento-grid">
-            <MagneticCard className="bento-stat-card" intensity={12}>
-              <div className="bento-stat-icon cyan-glow">
-                <Compass size={22} />
+          <div className="features-grid">
+            <div className="feature-card glass-card">
+              <div className="feature-icon-wrapper blue-icon">
+                <Briefcase size={22} />
               </div>
-              <span className="bento-stat-num">01 // APPLIED</span>
-              <h3 className="bento-stat-label">Source & Track Every Lead</h3>
-              <p className="bento-stat-sub">
-                Capture company, job posting link, compensation expectations, and referral sources in under 15 seconds.
+              <h3 className="feature-card-title">Visual Application Pipeline</h3>
+              <p className="feature-card-desc">
+                Follow each position from the moment you submit your resume through initial screening, technical interviews, and final offers.
               </p>
-            </MagneticCard>
+            </div>
 
-            <MagneticCard className="bento-stat-card" intensity={12}>
-              <div className="bento-stat-icon purple-glow">
-                <Flame size={22} />
+            <div className="feature-card glass-card">
+              <div className="feature-icon-wrapper purple-icon">
+                <CalendarCheck size={22} />
               </div>
-              <span className="bento-stat-num">02 // INTERVIEW</span>
-              <h3 className="bento-stat-label">Ace Multiple Technical Rounds</h3>
-              <p className="bento-stat-sub">
-                Document recruiter chats, coding challenges, system design debriefs, and behavioral questions in formatted notes.
+              <h3 className="feature-card-title">Interview Round Notes</h3>
+              <p className="feature-card-desc">
+                Store recruiter contacts, interview dates, behavioral talking points, and technical questions in clean, dedicated application cards.
               </p>
-            </MagneticCard>
+            </div>
 
-            <MagneticCard className="bento-stat-card" intensity={12}>
-              <div className="bento-stat-icon emerald-glow">
-                <Award size={22} />
+            <div className="feature-card glass-card">
+              <div className="feature-icon-wrapper cyan-icon">
+                <TrendingUp size={22} />
               </div>
-              <span className="bento-stat-num">03 // SELECTED</span>
-              <h3 className="bento-stat-label">Celebrate Round Clearance</h3>
-              <p className="bento-stat-sub">
-                Hiring committee approvals and final round clearings flagged with celebratory milestones and offer prep.
+              <h3 className="feature-card-title">Clear Conversion Metrics</h3>
+              <p className="feature-card-desc">
+                Gain real visibility into your application funnel with automatic conversion rates, active interview counts, and offer velocity.
               </p>
-            </MagneticCard>
+            </div>
 
-            <MagneticCard className="bento-stat-card" intensity={12}>
-              <div className="bento-stat-icon">
-                <Zap size={22} />
+            <div className="feature-card glass-card">
+              <div className="feature-icon-wrapper emerald-icon">
+                <Search size={22} />
               </div>
-              <span className="bento-stat-num">04 // OFFERS</span>
-              <h3 className="bento-stat-label">Compare & Negotiate</h3>
-              <p className="bento-stat-sub">
-                Side-by-side total compensation comparison with base salary, equity, and remote work flexibility.
+              <h3 className="feature-card-title">Instant Search & Filtering</h3>
+              <p className="feature-card-desc">
+                Find any job in seconds by role title, company name, location, or pipeline status with zero lag or delay.
               </p>
-            </MagneticCard>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ====================================================================
-          CHAPTER 03 // INTELLIGENCE (LIVE SEARCH & FILTER DEMO)
+          INTERACTIVE SEARCH DEMO
           ==================================================================== */}
-      <section className="mugen-section" id="intelligence-chapter">
+      <section className="features-section" id="interactive-demo">
         <div className="container">
-          <div className="section-monument-header">
-            <span className="section-code-pill">
-              <Search size={14} />
-              <span>CHAPTER 03 // INTERACTIVE SEARCH MATRIX</span>
-            </span>
-            <h2 className="section-monument-heading">
-              TEST THE REAL-TIME MULTI-FILTER ENGINE
-            </h2>
-            <p className="section-monument-desc">
-              Try searching below right now. Filter by company name, role, remote status, or stage in zero milliseconds.
+          <div className="section-header">
+            <span className="section-eyebrow">Try It Live</span>
+            <h2 className="section-heading">Filter & Search in Real Time</h2>
+            <p className="section-subtext">
+              Experience the fast, responsive search engine built into JobTrack. Test keywords and status filters below.
             </p>
           </div>
 
-          {/* Real-time interactive search widget */}
           <InteractiveSearchDemo />
         </div>
       </section>
 
       {/* ====================================================================
-          CHAPTER 04 // TOOLKIT (FEATURES MATRIX)
+          HOW IT WORKS SECTION
           ==================================================================== */}
-      <section className="mugen-section" id="features-chapter">
+      <section className="how-it-works-section" id="how-it-works">
         <div className="container">
-          <div className="section-monument-header">
-            <span className="section-code-pill">
-              <Layers size={14} />
-              <span>CHAPTER 04 // ENGINEERING SPECIFICATION</span>
-            </span>
-            <h2 className="section-monument-heading">
-              BUILT FOR SPEED, SECURITY & PORTFOLIO EXCELLENCE
-            </h2>
-            <p className="section-monument-desc">
-              Every component is crafted with modern engineering standards to ensure your career data is responsive and private.
+          <div className="section-header">
+            <span className="section-eyebrow">Simple Workflow</span>
+            <h2 className="section-heading">How JobTrack Works in 3 Steps</h2>
+            <p className="section-subtext">
+              Built to save you time so you can focus on interview preparation and landing the right offer.
             </p>
           </div>
 
-          <div className="features-matrix-grid">
-            <MagneticCard className="matrix-feature-card" intensity={10}>
-              <div className="feature-holo-icon">
-                <BarChart3 size={24} />
-              </div>
-              <h3 className="feature-title">MongoDB Aggregations</h3>
-              <p className="feature-desc">
-                High-performance server-side aggregation pipelines compute live status breakdowns and monthly velocity histograms.
+          <div className="steps-grid">
+            <div className="step-card glass-card">
+              <div className="step-number">01</div>
+              <h3 className="step-title">Log Applications</h3>
+              <p className="step-desc">
+                Add job title, company, salary range, and job posting link in under 15 seconds. Keep your pipeline populated.
               </p>
-            </MagneticCard>
+            </div>
 
-            <MagneticCard className="matrix-feature-card" intensity={10}>
-              <div className="feature-holo-icon" style={{ color: '#f59e0b', borderColor: 'rgba(245, 158, 11, 0.3)' }}>
-                <ShieldCheck size={24} />
-              </div>
-              <h3 className="feature-title">Stateless JWT Auth</h3>
-              <p className="feature-desc">
-                10-round salted bcrypt encryption and cryptographic token authorization guarantee strict isolation for your career records.
+            <div className="step-card glass-card">
+              <div className="step-number">02</div>
+              <h3 className="step-title">Manage Interview Stages</h3>
+              <p className="step-desc">
+                Move applications through screening, technical assessments, and panel interviews with a single click.
               </p>
-            </MagneticCard>
+            </div>
 
-            <MagneticCard className="matrix-feature-card" intensity={10}>
-              <div className="feature-holo-icon" style={{ color: '#10b981', borderColor: 'rgba(16, 185, 129, 0.3)' }}>
-                <Zap size={24} />
-              </div>
-              <h3 className="feature-title">Sub-Second Execution</h3>
-              <p className="feature-desc">
-                Deployed to Vercel Serverless Functions with connection pool caching for lightning-fast queries and 60 FPS transitions.
+            <div className="step-card glass-card">
+              <div className="step-number">03</div>
+              <h3 className="step-title">Compare Offers & Decide</h3>
+              <p className="step-desc">
+                Review base salary, benefits, and working arrangements side-by-side to make the best decision for your career.
               </p>
-            </MagneticCard>
-
-            <MagneticCard className="matrix-feature-card" intensity={10}>
-              <div className="feature-holo-icon" style={{ color: '#f59e0b', borderColor: 'rgba(245, 158, 11, 0.3)' }}>
-                <Sparkles size={24} />
-              </div>
-              <h3 className="feature-title">Cybernetic Themes</h3>
-              <p className="feature-desc">
-                Seamless Dark / Light mode toggle with local storage persistence and glassmorphic depth on every device.
-              </p>
-            </MagneticCard>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ====================================================================
-          CHAPTER 05 // LAUNCHPAD (FINAL MONUMENTAL CTA)
+          FINAL CALL TO ACTION
           ==================================================================== */}
-      <section className="mugen-cta-section" id="cta-chapter">
-        <div className="container">
-          <div className="launchpad-card">
-            <div className="launchpad-glow" />
-            <span className="section-code-pill">
-              <CheckCircle2 size={14} />
-              <span>CHAPTER 05 // MISSION READY</span>
-            </span>
-
-            <h2 className="launchpad-title">
-              READY TO ACCELERATE YOUR NEXT CAREER MOVE?
-            </h2>
-
-            <p className="launchpad-desc">
-              Join students, developers, and professionals managing their entire career pipeline with precision and confidence.
-            </p>
-
-            <div className="launchpad-actions">
-              {isAuthenticated ? (
-                <Link
-                  to="/dashboard"
-                  className="btn-cyber-primary"
-                  id="cta-dashboard-btn"
-                  onMouseEnter={playOfferCelebration}
-                >
-                  <span>Launch Dashboard</span>
+      <section className="container" id="cta">
+        <div className="cta-banner">
+          <h2>Ready to Take Control of Your Job Search?</h2>
+          <p className="text-secondary">
+            Join candidates tracking their job applications with clarity, confidence, and zero stress.
+          </p>
+          <div className="hero-cta-group" style={{ justifyContent: 'center' }}>
+            {isAuthenticated ? (
+              <Link to="/dashboard" className="btn btn-primary btn-lg" id="final-dashboard-btn">
+                <span>Open Your Dashboard</span>
+                <ArrowRight size={18} />
+              </Link>
+            ) : (
+              <>
+                <Link to="/register" className="btn btn-primary btn-lg" id="final-register-btn">
+                  <span>Create Free Account</span>
                   <ArrowRight size={18} />
                 </Link>
-              ) : (
-                <>
-                  <Link
-                    to="/register"
-                    className="btn-cyber-primary"
-                    id="cta-register-btn"
-                    onMouseEnter={playOfferCelebration}
-                  >
-                    <span>Create Your Free Account</span>
-                    <ArrowRight size={18} />
-                  </Link>
-                  <Link
-                    to="/login"
-                    className="btn-cyber-secondary"
-                    id="cta-login-btn"
-                    onMouseEnter={playHoverSound}
-                  >
-                    <span>Access Account</span>
-                  </Link>
-                </>
-              )}
-            </div>
+                <Link to="/login" className="btn btn-secondary btn-lg" id="final-signin-btn">
+                  <span>Sign In</span>
+                </Link>
+              </>
+            )}
           </div>
         </div>
       </section>

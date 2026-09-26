@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Search, Filter, Building2, MapPin, DollarSign, Calendar, ExternalLink } from 'lucide-react';
-import MagneticCard from './MagneticCard';
-import { playHoverSound } from './SoundEffects';
+
 
 const sampleJobs = [
   {
@@ -89,7 +88,6 @@ const InteractiveSearchDemo = () => {
               key={status}
               className={`filter-pill ${activeFilter === status ? 'active' : ''}`}
               onClick={() => setActiveFilter(status)}
-              onMouseEnter={playHoverSound}
             >
               {status}
             </button>
@@ -101,7 +99,7 @@ const InteractiveSearchDemo = () => {
       <div className="search-demo-grid">
         {filteredJobs.length > 0 ? (
           filteredJobs.map((job) => (
-            <MagneticCard key={job.id} className="demo-job-card" intensity={10}>
+            <div key={job.id} className="demo-job-card glass-card">
               <div className="demo-job-header">
                 <div>
                   <div className="demo-job-company">
@@ -124,7 +122,7 @@ const InteractiveSearchDemo = () => {
                   <Calendar size={13} /> {job.date}
                 </span>
               </div>
-            </MagneticCard>
+            </div>
           ))
         ) : (
           <div className="search-demo-empty glass-card">
